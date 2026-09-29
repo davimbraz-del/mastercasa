@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mastercasa Imobiliária - Imóveis em Recife/PE</title>
+	<meta name="description" content="Mastercasa Imobiliária (CRECI 7409-J), no Espinheiro, Recife/PE. Compra, venda, locação e lançamentos imobiliários na Grande Recife.">
+	<meta name="keywords" content="imobiliária Recife, imóveis Recife, imóveis Espinheiro, apartamentos Recife, alugar imóvel Recife, comprar imóvel Recife">
+
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23143175'%3E%3Cpath d='M12 2 2 9v13h7v-7h6v7h7V9z'/%3E%3C/svg%3E">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<!-- SPRITE DE ÍCONES (SVG embutido, sem dependência de CDN externo) -->
+	<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+		<symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M4 11.5 12 4l8 7.5"/>
+			<path d="M6 10v9a1 1 0 0 0 1 1h3v-5h4v5h3a1 1 0 0 0 1-1v-9"/>
+		</symbol>
+		<symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M6.6 3h3l1.4 4-2 1.6a12.5 12.5 0 0 0 6.4 6.4l1.6-2 4 1.4v3a2 2 0 0 1-2.2 2A17.3 17.3 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z"/>
+		</symbol>
+		<symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/>
+			<path d="M8.6 8.8c.2-.5.4-.6.6-.6h.5c.2 0 .3.1.5.4l.7 1.6c.1.3 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.4.8 1.4 1.8 2.2 2.2.2.1.3.1.5 0l.6-.6c.2-.1.3-.2.5-.1l1.6.7c.3.2.4.3.4.5v.5c0 .2 0 .4-.5.6-1.7.9-3.9-.1-5.6-1.8-1.7-1.7-2.6-3.9-1.9-5.6z" fill="currentColor" stroke="none"/>
+		</symbol>
+		<symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+			<path d="M4 6h16M4 12h16M4 18h16"/>
+		</symbol>
+		<symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+			<path d="M6 6l12 12M18 6 6 18"/>
+		</symbol>
+		<symbol id="icon-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 2.3c2.4 2 3.8 5.4 3.8 8.7 0 2-.5 3.4-1 4.3l-2.8 2.8-2.8-2.8c-.5-.9-1-2.3-1-4.3 0-3.3 1.4-6.7 3.8-8.7z"/>
+			<circle cx="12" cy="10.3" r="1.4"/>
+			<path d="M9.2 15.3 6.8 16.7 7.2 19.4M14.8 15.3l2.4 1.4-.4 2.7"/>
+		</symbol>
+		<symbol id="icon-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<rect x="5" y="4" width="14" height="17" rx="1.2"/>
+			<path d="M9 8h1.6M13.4 8H15M9 12h1.6M13.4 12H15M9 16h1.6M13.4 16H15"/>
+		</symbol>
+		<symbol id="icon-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="8" cy="9" r="3.3"/>
+			<path d="m10.4 11.4 8.6 8.6M15.2 16.2l2-2M12.6 18.8l2-2"/>
+		</symbol>
+		<symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M4 12h15M13 6l6 6-6 6"/>
+		</symbol>
+		<symbol id="icon-clipboard-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<rect x="6" y="4.5" width="12" height="16.5" rx="2"/>
+			<path d="M9 4.5h6a1 1 0 0 1 1 1V7H8V5.5a1 1 0 0 1 1-1z"/>
+			<path d="m9.3 13 2 2 3.8-4"/>
+		</symbol>
+		<symbol id="icon-cash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<rect x="3" y="7" width="18" height="11" rx="2"/>
+			<circle cx="12" cy="12.5" r="2.3"/>
+			<path d="M6.3 7c0-1.1.9-2 2-2h9"/>
+		</symbol>
+		<symbol id="icon-home-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M4 11.5 12 4l8 7.5"/>
+			<path d="M6 10v9a1 1 0 0 0 1 1h3v-5h3"/>
+			<path d="M17 14.5v5M14.5 17h5"/>
+		</symbol>
+		<symbol id="icon-badge-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+			<path d="m12 2.5 2.1 1.2 2.4-.4.9 2.2 2.2.9-.4 2.4 1.2 2.1-1.2 2.1.4 2.4-2.2.9-.9 2.2-2.4-.4L12 21.5l-2.1-1.2-2.4.4-.9-2.2-2.2-.9.4-2.4-1.2-2.1 1.2-2.1-.4-2.4 2.2-.9.9-2.2 2.4.4z"/>
+			<path d="m9 12 2 2 4-4"/>
+		</symbol>
+		<symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="9" cy="8.3" r="3"/>
+			<path d="M3.2 20c0-3.3 2.6-6 5.8-6s5.8 2.7 5.8 6"/>
+			<circle cx="17" cy="9.3" r="2.2"/>
+			<path d="M15.2 20c.2-2.5 1.5-4.3 3.4-5.1"/>
+		</symbol>
+		<symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/>
+			<circle cx="12" cy="9.5" r="2.2"/>
+		</symbol>
+		<symbol id="icon-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 3.2 19 6v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/>
+			<path d="m9 12 2 2 4-4"/>
+		</symbol>
+		<symbol id="icon-document" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M8 3h6l4 4v13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+			<path d="M14 3v4h4M9.3 13h5.4M9.3 16h5.4"/>
+		</symbol>
+		<symbol id="icon-facebook" viewBox="0 0 24 24">
+			<path fill="currentColor" d="M13.5 21v-7.5H16l.4-3H13.5V8.5c0-.9.2-1.5 1.5-1.5h1.6V4.3C16.3 4.2 15.3 4 14.2 4 11.9 4 10.3 5.4 10.3 8v2.5H8v3h2.3V21z"/>
+		</symbol>
+		<symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+			<rect x="4" y="4" width="16" height="16" rx="4.2"/>
+			<circle cx="12" cy="12" r="3.6"/>
+			<circle cx="16.7" cy="7.4" r="0.9" fill="currentColor" stroke="none"/>
+		</symbol>
+	</svg>
+
+	<!-- HEADER -->
+	<header class="site-header" id="topo">
+		<div class="container header-inner">
+			<a href="#topo" class="logo">
+				<span class="logo-mark"><svg class="icon"><use href="#icon-home"></use></svg></span>
+				<span class="logo-text">
+					MASTER<strong>CASA</strong>
+					<small>IMOBILIÁRIA &middot; CRECI 7409-J</small>
+				</span>
+			</a>
+
+			<nav class="main-nav" id="mainNav">
+				<ul>
+					<li><a href="#imoveis">Imóveis</a></li>
+					<li><a href="#servicos">Serviços</a></li>
+					<li><a href="#empresa">A empresa</a></li>
+					<li><a href="#contato">Contato</a></li>
+				</ul>
+			</nav>
+
+			<div class="header-actions">
+				<a href="tel:+558130405353" class="header-phone">
+					<svg class="icon"><use href="#icon-phone"></use></svg> (81) 3040-5353
+				</a>
+				<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20corretor." target="_blank" rel="noopener" class="btn btn-whatsapp">
+					<svg class="icon"><use href="#icon-whatsapp"></use></svg> WhatsApp
+				</a>
+				<button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+					<svg class="icon" id="navToggleIcon"><use href="#icon-menu"></use></svg>
+				</button>
+			</div>
+		</div>
+	</header>
+
+	<!-- HERO -->
+	<section class="hero">
+		<div class="hero-bg" aria-hidden="true"></div>
+		<div class="container hero-inner">
+			<div class="hero-text">
+				<span class="eyebrow">Imobiliária em Recife/PE</span>
+				<h1>Encontre o imóvel certo<br>para o seu momento</h1>
+				<p>A Mastercasa ajuda você a comprar, alugar e investir em imóveis no Espinheiro e em toda a Grande Recife, com atendimento próximo do início ao fim do negócio.</p>
+				<div class="hero-cta">
+					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20corretor." target="_blank" rel="noopener" class="btn btn-accent">
+						<svg class="icon"><use href="#icon-whatsapp"></use></svg> Falar com um corretor
+					</a>
+					<a href="#imoveis" class="btn btn-outline-light">Ver imóveis</a>
+				</div>
+			</div>
+
+			<!-- BUSCA / CAPTAÇÃO DE LEAD -->
+			<div class="hero-search" id="busca">
+				<h2>O que você está procurando?</h2>
+				<form id="formBusca" class="search-form">
+					<div class="field-group">
+						<label for="pretensao">Eu quero</label>
+						<select id="pretensao" required>
+							<option value="Comprar">Comprar</option>
+							<option value="Alugar">Alugar</option>
+							<option value="Conhecer lançamentos">Conhecer lançamentos</option>
+						</select>
+					</div>
+					<div class="field-group">
+						<label for="tipoImovel">Tipo de imóvel</label>
+						<select id="tipoImovel">
+							<option value="Apartamento">Apartamento</option>
+							<option value="Casa">Casa</option>
+							<option value="Terreno">Terreno</option>
+							<option value="Sala comercial">Sala comercial</option>
+							<option value="Outro">Outro</option>
+						</select>
+					</div>
+					<div class="field-group">
+						<label for="regiao">Bairro / região</label>
+						<input type="text" id="regiao" placeholder="Ex: Espinheiro, Boa Viagem, Casa Forte...">
+					</div>
+					<div class="field-group">
+						<label for="faixaValor">Faixa de valor</label>
+						<select id="faixaValor">
+							<option value="">Sem preferência</option>
+							<option value="até R$ 200 mil">até R$ 200 mil</option>
+							<option value="entre R$ 200 e 400 mil">entre R$ 200 e 400 mil</option>
+							<option value="entre R$ 400 e 700 mil">entre R$ 400 e 700 mil</option>
+							<option value="acima de R$ 700 mil">acima de R$ 700 mil</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-whatsapp btn-block">
+						<svg class="icon"><use href="#icon-whatsapp"></use></svg> Buscar pelo WhatsApp
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<!-- CATEGORIAS DE IMÓVEIS -->
+	<section class="categories" id="imoveis">
+		<div class="container">
+			<div class="section-head">
+				<span class="eyebrow eyebrow-dark">Imóveis</span>
+				<h2>Para todo momento da sua vida</h2>
+			</div>
+
+			<div class="cards-grid">
+				<div class="category-card">
+					<div class="category-icon"><svg class="icon"><use href="#icon-rocket"></use></svg></div>
+					<h3>Lançamentos</h3>
+					<p>Empreendimentos novos, na planta ou prontos, com as melhores condições de pagamento.</p>
+					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20em%20Lan%C3%A7amentos." target="_blank" rel="noopener" class="card-link">
+						Quero saber mais <svg class="icon"><use href="#icon-arrow-right"></use></svg>
+					</a>
+				</div>
+
+				<div class="category-card">
+					<div class="category-icon"><svg class="icon"><use href="#icon-building"></use></svg></div>
+					<h3>Residenciais</h3>
+					<p>Casas e apartamentos para comprar em bairros como Espinheiro, Boa Viagem e Casa Forte.</p>
+					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20em%20Im%C3%B3veis%20Residenciais." target="_blank" rel="noopener" class="card-link">
+						Quero saber mais <svg class="icon"><use href="#icon-arrow-right"></use></svg>
+					</a>
+				</div>
+
+				<div class="category-card">
+					<div class="category-icon"><svg class="icon"><use href="#icon-key"></use></svg></div>
+					<h3>Aluguéis</h3>
+					<p>Imóveis residenciais e comerciais para alugar, com contrato seguro e suporte completo.</p>
+					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20em%20Alugar%20um%20im%C3%B3vel." target="_blank" rel="noopener" class="card-link">
+						Quero saber mais <svg class="icon"><use href="#icon-arrow-right"></use></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SERVIÇOS -->
+	<section class="services" id="servicos">
+		<div class="container">
+			<div class="section-head">
+				<span class="eyebrow eyebrow-dark">Serviços</span>
+				<h2>Como podemos te ajudar</h2>
+			</div>
+
+			<div class="cards-grid">
+				<div class="service-card">
+					<div class="service-icon"><svg class="icon"><use href="#icon-clipboard-check"></use></svg></div>
+					<h3>Solicite seu imóvel</h3>
+					<p>Não encontrou o imóvel ideal? Descreva o que você procura e nossa equipe faz a busca por você.</p>
+					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Quero%20solicitar%20a%20busca%20de%20um%20im%C3%B3vel." target="_blank" rel="noopener" class="btn btn-primary-outline">Solicitar imóvel</a>
+				</div>
+
+				<div class="service-card">
+					<div class="service-icon"><svg class="icon"><use href="#icon-cash"></use></svg></div>
+					<h3>Financie seu imóvel</h3>
+					<p>Simule seu financiamento com o banco de sua preferência e conte com nossa orientação em cada etapa.</p>
+					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Quero%20simular%20um%20financiamento%20de%20im%C3%B3vel." target="_blank" rel="noopener" class="btn btn-primary-outline">Simular financiamento</a>
+				</div>
+
+				<div class="service-card">
+					<div class="service-icon"><svg class="icon"><use href="#icon-home-plus"></use></svg></div>
+					<h3>Cadastre seu imóvel</h3>
+					<p>Quer vender ou alugar seu imóvel? Cadastre com a Mastercasa e amplie suas chances de negócio.</p>
+					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Quero%20cadastrar%20um%20im%C3%B3vel%20para%20venda%2Faluguel." target="_blank" rel="noopener" class="btn btn-primary-outline">Cadastrar imóvel</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SOBRE A EMPRESA -->
+	<section class="about" id="empresa">
+		<div class="container about-inner">
+			<div class="about-text">
+				<span class="eyebrow eyebrow-dark">A empresa</span>
+				<h2>Sobre a Mastercasa Imobiliária</h2>
+				<p>Localizada no Espinheiro, no coração de Recife, a Mastercasa Imobiliária (CRECI 7409-J) atua na compra, venda e locação de imóveis residenciais, lançamentos e imóveis de alto padrão na capital pernambucana.</p>
+				<p>Nosso compromisso é acompanhar cada cliente de perto, do primeiro contato à assinatura do contrato, com transparência e agilidade.</p>
+
+				<ul class="badges">
+					<li><svg class="icon"><use href="#icon-badge-check"></use></svg> CRECI 7409-J registrado</li>
+					<li><svg class="icon"><use href="#icon-users"></use></svg> Atendimento personalizado</li>
+					<li><svg class="icon"><use href="#icon-map-pin"></use></svg> Foco na Grande Recife</li>
+				</ul>
+			</div>
+
+			<div class="about-features">
+				<div class="feature">
+					<svg class="icon"><use href="#icon-users"></use></svg>
+					<h4>Atendimento próximo</h4>
+					<p>Corretores que acompanham você em cada etapa da negociação.</p>
+				</div>
+				<div class="feature">
+					<svg class="icon"><use href="#icon-shield-check"></use></svg>
+					<h4>Segurança jurídica</h4>
+					<p>Documentação e contratos conferidos com cuidado, do início ao fim.</p>
+				</div>
+				<div class="feature">
+					<svg class="icon"><use href="#icon-map-pin"></use></svg>
+					<h4>Conhecimento local</h4>
+					<p>Atuação no mercado imobiliário de Recife e região metropolitana.</p>
+				</div>
+				<div class="feature">
+					<svg class="icon"><use href="#icon-cash"></use></svg>
+					<h4>Apoio no financiamento</h4>
+					<p>Orientação na simulação e escolha da melhor condição junto aos bancos.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CONTATO -->
+	<section class="contact" id="contato">
+		<div class="container contact-inner">
+			<div class="contact-info">
+				<span class="eyebrow">Contato</span>
+				<h2>Vamos conversar?</h2>
+				<p>Fale com a gente pelo telefone, WhatsApp ou venha até o nosso escritório no Espinheiro.</p>
+
+				<ul class="contact-list">
+					<li>
+						<svg class="icon"><use href="#icon-map-pin"></use></svg>
+						<span>Av. João de Barros, 1261, Loja 01 Sala 05/06 &mdash; Espinheiro, Recife/PE &mdash; CEP 52021-180</span>
+					</li>
+					<li>
+						<svg class="icon"><use href="#icon-phone"></use></svg>
+						<span><a href="tel:+558130405353">(81) 3040-5353</a></span>
+					</li>
+					<li>
+						<svg class="icon"><use href="#icon-whatsapp"></use></svg>
+						<span><a href="https://api.whatsapp.com/send?phone=5581999778291" target="_blank" rel="noopener">(81) 99977-8291</a></span>
+					</li>
+					<li>
+						<svg class="icon"><use href="#icon-document"></use></svg>
+						<span>CNPJ 00.182.845/0001-45 &middot; CRECI 7409-J</span>
+					</li>
+				</ul>
+
+				<div class="social-links">
+					<a href="https://www.facebook.com/mastercasa.imobiliaria" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+					<a href="https://www.instagram.com/mastercasaimobiliaria" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+				</div>
+
+				<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20corretor." target="_blank" rel="noopener" class="btn btn-whatsapp">
+					<svg class="icon"><use href="#icon-whatsapp"></use></svg> Falar no WhatsApp
+				</a>
+			</div>
+
+			<div class="contact-map">
+				<iframe
+					title="Mapa - Mastercasa Imobiliária"
+					src="https://www.google.com/maps?q=Av.+Jo%C3%A3o+de+Barros,+1261,+Espinheiro,+Recife+-+PE,+52021-180&output=embed"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade">
+				</iframe>
+				<a class="map-fallback-link" href="https://www.google.com/maps?q=Av.+Jo%C3%A3o+de+Barros,+1261,+Espinheiro,+Recife+-+PE,+52021-180" target="_blank" rel="noopener">
+					<svg class="icon"><use href="#icon-map-pin"></use></svg> Abrir no Google Maps
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- FOOTER -->
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<div class="footer-col">
+				<a href="#topo" class="logo logo-footer">
+					<span class="logo-mark"><svg class="icon"><use href="#icon-home"></use></svg></span>
+					<span class="logo-text">MASTER<strong>CASA</strong></span>
+				</a>
+				<p>Imóveis para comprar, alugar e investir em Recife/PE.</p>
+			</div>
+
+			<div class="footer-col">
+				<h5>Menu</h5>
+				<ul>
+					<li><a href="#imoveis">Imóveis</a></li>
+					<li><a href="#servicos">Serviços</a></li>
+					<li><a href="#empresa">A empresa</a></li>
+					<li><a href="#contato">Contato</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-col">
+				<h5>Empresa</h5>
+				<p><strong>Mastercasa Imobiliária Ltda</strong></p>
+				<p>CNPJ 00.182.845/0001-45<br>CRECI 7409-J</p>
+				<p>Av. João de Barros, 1261, Loja 01 Sala 05/06 &mdash; Espinheiro, Recife/PE</p>
+			</div>
+
+			<div class="footer-col">
+				<h5>Contato</h5>
+				<p><svg class="icon"><use href="#icon-phone"></use></svg> (81) 3040-5353</p>
+				<p><svg class="icon"><use href="#icon-whatsapp"></use></svg> (81) 99977-8291</p>
+				<div class="social-links">
+					<a href="https://www.facebook.com/mastercasa.imobiliaria" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+					<a href="https://www.instagram.com/mastercasaimobiliaria" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="container">
+				<p>&copy; <span id="year"></span> Mastercasa Imobiliária Ltda &mdash; CRECI 7409-J. Todos os direitos reservados.</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- BOTÃO FLUTUANTE WHATSAPP -->
+	<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20corretor." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp">
+		<svg class="icon"><use href="#icon-whatsapp"></use></svg>
+	</a>
+
+	<!-- AVISO DE COOKIES -->
+	<div class="cookie-bar" id="cookieBar">
+		<p>Usamos cookies para melhorar sua experiência neste site. Ao continuar navegando, você concorda com isso.</p>
+		<button id="cookieAccept" class="btn btn-accent btn-small">Entendi</button>
+	</div>
+
+	<script src="js/script.js"></script>
+</body>
+</html>
