@@ -1,29 +1,33 @@
 /* ==========================================================================
    Mastercasa Imobiliária — Landing Page
+   Paleta extraída da logo oficial: azul-marinho + vermelho.
    ========================================================================== */
 
 :root {
-	--color-primary: #143175;
-	--color-primary-dark: #0d2154;
-	--color-primary-light: #1c4099;
-	--color-accent: #81a91b;
-	--color-accent-dark: #6c8e16;
+	--color-navy: #12306f;
+	--color-navy-dark: #081b47;
+	--color-navy-light: #2c4f9e;
+	--color-red: #db241d;
+	--color-red-dark: #a91813;
+	--color-red-light: #ff5b52;
 	--color-whatsapp: #25d366;
 	--color-whatsapp-dark: #1ebe5a;
 
-	--color-text: #24272f;
-	--color-text-light: #6b7078;
+	--color-text: #14182b;
+	--color-text-light: #5d6272;
 	--color-bg: #ffffff;
-	--color-bg-alt: #f5f7fb;
-	--color-border: #e4e7ee;
+	--color-bg-alt: #f6f7fb;
+	--color-border: #e7e9f1;
 
-	--font-heading: 'Poppins', sans-serif;
-	--font-body: 'Open Sans', sans-serif;
+	--font-heading: 'Manrope', sans-serif;
+	--font-body: 'Work Sans', sans-serif;
 
-	--radius: 12px;
-	--radius-sm: 8px;
-	--shadow: 0 10px 30px rgba(20, 49, 117, 0.08);
-	--shadow-hover: 0 16px 40px rgba(20, 49, 117, 0.14);
+	--radius-lg: 20px;
+	--radius: 16px;
+	--radius-sm: 10px;
+	--radius-pill: 999px;
+	--shadow: 0 10px 30px rgba(18, 48, 111, 0.09);
+	--shadow-hover: 0 20px 48px rgba(18, 48, 111, 0.16);
 	--max-width: 1160px;
 }
 
@@ -46,9 +50,10 @@ body {
 
 h1, h2, h3, h4, h5 {
 	font-family: var(--font-heading);
-	color: var(--color-primary-dark);
+	color: var(--color-text);
 	margin: 0 0 16px;
-	line-height: 1.25;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
 }
 
 p {
@@ -86,18 +91,23 @@ ul {
 }
 
 .eyebrow {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
 	font-family: var(--font-heading);
 	font-size: 13px;
 	font-weight: 700;
-	letter-spacing: 1.5px;
-	text-transform: uppercase;
-	color: var(--color-accent);
-	margin-bottom: 12px;
+	letter-spacing: 0.2px;
+	color: var(--color-red-light);
+	background: rgba(255, 255, 255, 0.1);
+	padding: 6px 14px;
+	border-radius: var(--radius-pill);
+	margin-bottom: 16px;
 }
 
 .eyebrow-dark {
-	color: var(--color-primary);
+	color: var(--color-red-dark);
+	background: rgba(219, 36, 29, 0.09);
 }
 
 .section-head {
@@ -107,7 +117,15 @@ ul {
 }
 
 .section-head h2 {
-	font-size: 32px;
+	font-size: 34px;
+	font-weight: 800;
+}
+
+.highlight {
+	position: relative;
+	color: inherit;
+	background: linear-gradient(to top, rgba(219, 36, 29, 0.35) 38%, transparent 38%);
+	padding: 0 2px;
 }
 
 /* ---------- Buttons ---------- */
@@ -116,10 +134,10 @@ ul {
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	padding: 14px 26px;
-	border-radius: var(--radius-sm);
+	padding: 15px 28px;
+	border-radius: var(--radius-pill);
 	font-family: var(--font-heading);
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 15px;
 	border: 2px solid transparent;
 	cursor: pointer;
@@ -132,17 +150,19 @@ ul {
 }
 
 .btn-accent {
-	background: var(--color-accent);
+	background: var(--color-red);
 	color: #ffffff;
+	box-shadow: 0 10px 24px rgba(219, 36, 29, 0.35);
 }
 
 .btn-accent:hover {
-	background: var(--color-accent-dark);
+	background: var(--color-red-dark);
 }
 
 .btn-whatsapp {
 	background: var(--color-whatsapp);
 	color: #ffffff;
+	box-shadow: 0 10px 24px rgba(37, 211, 102, 0.3);
 }
 
 .btn-whatsapp:hover {
@@ -150,22 +170,23 @@ ul {
 }
 
 .btn-outline-light {
-	border-color: rgba(255, 255, 255, 0.6);
+	border-color: rgba(255, 255, 255, 0.5);
 	color: #ffffff;
 }
 
 .btn-outline-light:hover {
 	background: rgba(255, 255, 255, 0.12);
+	border-color: rgba(255, 255, 255, 0.8);
 }
 
 .btn-primary-outline {
-	border-color: var(--color-primary);
-	color: var(--color-primary);
+	border-color: var(--color-navy);
+	color: var(--color-navy);
 	background: transparent;
 }
 
 .btn-primary-outline:hover {
-	background: var(--color-primary);
+	background: var(--color-navy);
 	color: #ffffff;
 }
 
@@ -175,7 +196,7 @@ ul {
 }
 
 .btn-small {
-	padding: 8px 18px;
+	padding: 9px 18px;
 	font-size: 13px;
 }
 
@@ -185,7 +206,9 @@ ul {
 	position: sticky;
 	top: 0;
 	z-index: 500;
-	background: #ffffff;
+	background: rgba(255, 255, 255, 0.85);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 	border-bottom: 1px solid var(--color-border);
 }
 
@@ -201,7 +224,7 @@ ul {
 .logo {
 	display: flex;
 	align-items: center;
-	gap: 10px;
+	gap: 12px;
 	flex-shrink: 0;
 }
 
@@ -209,24 +232,26 @@ ul {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 42px;
-	height: 42px;
-	border-radius: 10px;
-	background: var(--color-primary);
-	color: #ffffff;
-	font-size: 20px;
+	width: 46px;
+	height: 46px;
+	flex-shrink: 0;
+}
+
+.logo-mark .icon {
+	width: 100%;
+	height: 100%;
 }
 
 .logo-text {
 	font-family: var(--font-heading);
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 19px;
-	color: var(--color-primary-dark);
+	color: var(--color-navy);
 	line-height: 1.15;
 }
 
 .logo-text strong {
-	color: var(--color-accent);
+	color: var(--color-red);
 	font-weight: 800;
 }
 
@@ -253,7 +278,7 @@ ul {
 }
 
 .main-nav a:hover {
-	color: var(--color-primary);
+	color: var(--color-red);
 }
 
 .header-actions {
@@ -267,7 +292,7 @@ ul {
 	align-items: center;
 	gap: 6px;
 	font-weight: 700;
-	color: var(--color-primary-dark);
+	color: var(--color-navy);
 	font-size: 15px;
 }
 
@@ -276,7 +301,7 @@ ul {
 	background: none;
 	border: none;
 	font-size: 26px;
-	color: var(--color-primary-dark);
+	color: var(--color-navy);
 	cursor: pointer;
 	padding: 4px;
 }
@@ -286,8 +311,8 @@ ul {
 .hero {
 	position: relative;
 	overflow: hidden;
-	padding: 72px 0 96px;
-	background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 55%, var(--color-primary-light) 100%);
+	padding: 88px 0 110px;
+	background: var(--color-navy-dark);
 	color: #ffffff;
 }
 
@@ -295,8 +320,10 @@ ul {
 	position: absolute;
 	inset: 0;
 	background-image:
-		radial-gradient(circle at 85% 18%, rgba(129, 169, 27, 0.35) 0%, transparent 45%),
-		radial-gradient(circle at 8% 85%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
+		radial-gradient(560px circle at 82% 8%, rgba(219, 36, 29, 0.4) 0%, transparent 60%),
+		radial-gradient(680px circle at -5% 95%, rgba(44, 79, 158, 0.55) 0%, transparent 60%),
+		linear-gradient(160deg, var(--color-navy-dark) 0%, var(--color-navy) 100%);
+	filter: blur(0px);
 	pointer-events: none;
 }
 
@@ -308,18 +335,16 @@ ul {
 	align-items: start;
 }
 
-.hero-text .eyebrow {
-	color: #b9e06a;
-}
-
 .hero-text h1 {
 	color: #ffffff;
-	font-size: 42px;
+	font-size: 46px;
+	font-weight: 800;
 	margin-bottom: 20px;
+	letter-spacing: -0.02em;
 }
 
 .hero-text p {
-	color: rgba(255, 255, 255, 0.85);
+	color: rgba(255, 255, 255, 0.78);
 	font-size: 17px;
 	max-width: 460px;
 }
@@ -331,18 +356,43 @@ ul {
 	flex-wrap: wrap;
 }
 
+.trust-strip {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 44px;
+}
+
+.trust-strip span {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.85);
+	background: rgba(255, 255, 255, 0.07);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	padding: 8px 14px;
+	border-radius: var(--radius-pill);
+}
+
+.trust-strip svg {
+	color: var(--color-red-light);
+}
+
 /* Search / lead card */
 
 .hero-search {
 	background: #ffffff;
-	border-radius: var(--radius);
-	padding: 28px;
-	box-shadow: var(--shadow-hover);
+	border-radius: var(--radius-lg);
+	padding: 30px;
+	box-shadow: 0 30px 70px rgba(3, 10, 30, 0.45);
 	color: var(--color-text);
 }
 
 .hero-search h2 {
-	font-size: 19px;
+	font-size: 20px;
+	font-weight: 800;
 	margin-bottom: 20px;
 }
 
@@ -368,9 +418,9 @@ ul {
 
 .field-group select,
 .field-group input {
-	padding: 11px 12px;
+	padding: 12px 14px;
 	border-radius: var(--radius-sm);
-	border: 1px solid var(--color-border);
+	border: 1.5px solid var(--color-border);
 	font-family: var(--font-body);
 	font-size: 14px;
 	background: var(--color-bg-alt);
@@ -379,7 +429,7 @@ ul {
 
 .field-group select:focus,
 .field-group input:focus {
-	outline: 2px solid var(--color-primary-light);
+	outline: 2px solid var(--color-navy-light);
 	outline-offset: 1px;
 }
 
@@ -392,7 +442,7 @@ ul {
 
 .categories,
 .services {
-	padding: 88px 0;
+	padding: 96px 0;
 }
 
 .services {
@@ -407,18 +457,39 @@ ul {
 
 .category-card,
 .service-card {
+	position: relative;
 	background: #ffffff;
 	border: 1px solid var(--color-border);
-	border-radius: var(--radius);
-	padding: 32px 28px;
+	border-radius: var(--radius-lg);
+	padding: 34px 28px;
 	box-shadow: var(--shadow);
+	overflow: hidden;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card::before,
+.service-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--color-red) 0%, var(--color-navy) 100%);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.25s ease;
 }
 
 .category-card:hover,
 .service-card:hover {
 	transform: translateY(-6px);
 	box-shadow: var(--shadow-hover);
+}
+
+.category-card:hover::before,
+.service-card:hover::before {
+	transform: scaleX(1);
 }
 
 .category-icon,
@@ -428,16 +499,17 @@ ul {
 	justify-content: center;
 	width: 56px;
 	height: 56px;
-	border-radius: 14px;
-	background: rgba(20, 49, 117, 0.08);
-	color: var(--color-primary);
+	border-radius: var(--radius-sm);
+	background: rgba(18, 48, 111, 0.08);
+	color: var(--color-navy);
 	font-size: 26px;
-	margin-bottom: 20px;
+	margin-bottom: 22px;
 }
 
 .category-card h3,
 .service-card h3 {
 	font-size: 20px;
+	font-weight: 800;
 }
 
 .category-card p,
@@ -451,23 +523,23 @@ ul {
 	align-items: center;
 	gap: 6px;
 	font-weight: 700;
-	color: var(--color-primary);
+	color: var(--color-red);
 	font-size: 14px;
 	margin-top: 8px;
 }
 
-.card-link i {
+.card-link svg {
 	transition: transform 0.15s ease;
 }
 
-.card-link:hover i {
+.card-link:hover svg {
 	transform: translateX(4px);
 }
 
 /* ---------- About ---------- */
 
 .about {
-	padding: 96px 0;
+	padding: 100px 0;
 }
 
 .about-inner {
@@ -494,36 +566,38 @@ ul {
 	align-items: center;
 	gap: 10px;
 	font-weight: 700;
-	color: var(--color-primary-dark);
+	color: var(--color-navy);
 	font-size: 14px;
 }
 
-.badges i {
-	color: var(--color-accent);
+.badges svg {
+	color: var(--color-red);
 	font-size: 18px;
 }
 
 .about-features {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 24px;
+	gap: 20px;
 }
 
 .feature {
 	background: var(--color-bg-alt);
 	border-radius: var(--radius);
-	padding: 24px 20px;
+	padding: 26px 22px;
+	border: 1px solid var(--color-border);
 }
 
-.feature i {
+.feature svg {
 	font-size: 26px;
-	color: var(--color-accent);
-	margin-bottom: 12px;
+	color: var(--color-red);
+	margin-bottom: 14px;
 	display: block;
 }
 
 .feature h4 {
 	font-size: 16px;
+	font-weight: 800;
 	margin-bottom: 6px;
 }
 
@@ -536,8 +610,8 @@ ul {
 /* ---------- Contact ---------- */
 
 .contact {
-	padding: 96px 0;
-	background: var(--color-primary-dark);
+	padding: 100px 0;
+	background: var(--color-navy-dark);
 	color: #ffffff;
 }
 
@@ -549,11 +623,12 @@ ul {
 }
 
 .contact-info p {
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(255, 255, 255, 0.75);
 }
 
 .contact-info h2 {
 	color: #ffffff;
+	font-weight: 800;
 }
 
 .contact-list {
@@ -570,8 +645,8 @@ ul {
 	font-size: 15px;
 }
 
-.contact-list i {
-	color: var(--color-accent);
+.contact-list svg {
+	color: var(--color-red-light);
 	font-size: 18px;
 	margin-top: 2px;
 }
@@ -599,12 +674,12 @@ ul {
 }
 
 .social-links a:hover {
-	background: var(--color-accent);
+	background: var(--color-red);
 }
 
 .contact-map {
 	position: relative;
-	border-radius: var(--radius);
+	border-radius: var(--radius-lg);
 	overflow: hidden;
 	box-shadow: var(--shadow-hover);
 	min-height: 340px;
@@ -627,9 +702,9 @@ ul {
 	align-items: center;
 	gap: 8px;
 	padding: 10px 16px;
-	border-radius: var(--radius-sm);
+	border-radius: var(--radius-pill);
 	background: #ffffff;
-	color: var(--color-primary-dark);
+	color: var(--color-navy);
 	font-weight: 700;
 	font-size: 13px;
 	box-shadow: var(--shadow);
@@ -638,7 +713,7 @@ ul {
 /* ---------- Footer ---------- */
 
 .site-footer {
-	background: #0a1a3d;
+	background: #060f28;
 	color: rgba(255, 255, 255, 0.75);
 	padding-top: 64px;
 }
@@ -677,7 +752,7 @@ ul {
 }
 
 .footer-col a:hover {
-	color: var(--color-accent);
+	color: var(--color-red-light);
 }
 
 .logo-footer {
@@ -733,7 +808,7 @@ ul {
 	right: 0;
 	bottom: 0;
 	z-index: 700;
-	background: rgba(10, 20, 45, 0.96);
+	background: rgba(6, 15, 40, 0.96);
 	color: #ffffff;
 	display: flex;
 	align-items: center;
@@ -819,7 +894,7 @@ ul {
 	}
 
 	.hero-text h1 {
-		font-size: 32px;
+		font-size: 34px;
 	}
 
 	.search-form {

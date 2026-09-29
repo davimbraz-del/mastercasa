@@ -7,11 +7,11 @@
 	<meta name="description" content="Mastercasa Imobiliária (CRECI 7409-J), no Espinheiro, Recife/PE. Compra, venda, locação e lançamentos imobiliários na Grande Recife.">
 	<meta name="keywords" content="imobiliária Recife, imóveis Recife, imóveis Espinheiro, apartamentos Recife, alugar imóvel Recife, comprar imóvel Recife">
 
-	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23143175'%3E%3Cpath d='M12 2 2 9v13h7v-7h6v7h7V9z'/%3E%3C/svg%3E">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2312306f'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M6.5 16V8l5.5 6 5.5-6v8' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -19,6 +19,12 @@
 
 	<!-- SPRITE DE ÍCONES (SVG embutido, sem dependência de CDN externo) -->
 	<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+		<symbol id="icon-logo" viewBox="0 0 48 48">
+			<circle cx="24" cy="24" r="20" fill="#ffffff"/>
+			<circle cx="24" cy="24" r="18" fill="none" stroke="#12306f" stroke-width="4" stroke-dasharray="84.8 28.3" transform="rotate(-90 24 24)"/>
+			<circle cx="24" cy="24" r="18" fill="none" stroke="#db241d" stroke-width="4" stroke-dasharray="28.3 84.8" stroke-dashoffset="-84.8" transform="rotate(-90 24 24)"/>
+			<path d="M15.5 31V17l8.5 9.5L32.5 17v14" fill="none" stroke="#12306f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+		</symbol>
 		<symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 			<path d="M4 11.5 12 4l8 7.5"/>
 			<path d="M6 10v9a1 1 0 0 0 1 1h3v-5h4v5h3a1 1 0 0 0 1-1v-9"/>
@@ -103,7 +109,7 @@
 	<header class="site-header" id="topo">
 		<div class="container header-inner">
 			<a href="#topo" class="logo">
-				<span class="logo-mark"><svg class="icon"><use href="#icon-home"></use></svg></span>
+				<span class="logo-mark"><svg class="icon"><use href="#icon-logo"></use></svg></span>
 				<span class="logo-text">
 					MASTER<strong>CASA</strong>
 					<small>IMOBILIÁRIA &middot; CRECI 7409-J</small>
@@ -139,13 +145,19 @@
 		<div class="container hero-inner">
 			<div class="hero-text">
 				<span class="eyebrow">Imobiliária em Recife/PE</span>
-				<h1>Encontre o imóvel certo<br>para o seu momento</h1>
+				<h1>Encontre o imóvel certo<br>para o seu <span class="highlight">momento</span></h1>
 				<p>A Mastercasa ajuda você a comprar, alugar e investir em imóveis no Espinheiro e em toda a Grande Recife, com atendimento próximo do início ao fim do negócio.</p>
 				<div class="hero-cta">
 					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20corretor." target="_blank" rel="noopener" class="btn btn-accent">
 						<svg class="icon"><use href="#icon-whatsapp"></use></svg> Falar com um corretor
 					</a>
 					<a href="#imoveis" class="btn btn-outline-light">Ver imóveis</a>
+				</div>
+
+				<div class="trust-strip">
+					<span><svg class="icon"><use href="#icon-badge-check"></use></svg> CRECI 7409-J</span>
+					<span><svg class="icon"><use href="#icon-users"></use></svg> Atendimento personalizado</span>
+					<span><svg class="icon"><use href="#icon-map-pin"></use></svg> Espinheiro, Recife/PE</span>
 				</div>
 			</div>
 
@@ -362,7 +374,7 @@
 		<div class="container footer-inner">
 			<div class="footer-col">
 				<a href="#topo" class="logo logo-footer">
-					<span class="logo-mark"><svg class="icon"><use href="#icon-home"></use></svg></span>
+					<span class="logo-mark"><svg class="icon"><use href="#icon-logo"></use></svg></span>
 					<span class="logo-text">MASTER<strong>CASA</strong></span>
 				</a>
 				<p>Imóveis para comprar, alugar e investir em Recife/PE.</p>
