@@ -27,23 +27,32 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	// ---------- Filtro de imóveis ----------
-	var filtroValor = document.getElementById('filtroValor');
-	var filtroTamanho = document.getElementById('filtroTamanho');
 	var filtroLocalizacao = document.getElementById('filtroLocalizacao');
 	var limparFiltros = document.getElementById('limparFiltros');
 	var propertyCards = document.querySelectorAll('.property-card');
 	var noResults = document.getElementById('noResults');
 
+	var faixaAtual = {
+		valorMin: 0,
+		valorMax: 1000000,
+		tamanhoMin: 0,
+		tamanhoMax: 200
+	};
+
+	function clamp(valor, min, max) {
+		return Math.min(Math.max(valor, min), max);
+	}
+
 	function aplicarFiltros() {
-		var valor = filtroValor.value;
-		var tamanho = filtroTamanho.value;
-		var localizacao = filtroLocalizacao.value;
+		var localizacao = filtroLocalizacao ? filtroLocalizacao.value : '';
 		var visiveis = 0;
 
 		propertyCards.forEach(function (card) {
+			var preco = parseFloat(card.getAttribute('data-price'));
+			var tamanho = parseFloat(card.getAttribute('data-size'));
 			var combina =
-				(!valor || card.getAttribute('data-price') === valor) &&
-				(!tamanho || card.getAttribute('data-size') === tamanho) &&
+				preco >= faixaAtual.valorMin && preco <= faixaAtual.valorMax &&
+				tamanho >= faixaAtual.tamanhoMin && tamanho <= faixaAtual.tamanhoMax &&
 				(!localizacao || card.getAttribute('data-location') === localizacao);
 
 			card.hidden = !combina;
@@ -57,20 +66,122 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	if (filtroValor && filtroTamanho && filtroLocalizacao) {
-		[filtroValor, filtroTamanho, filtroLocalizacao].forEach(function (select) {
-			select.addEventListener('change', aplicarFiltros);
-		});
+	// Slider de intervalo (dois controles sobrepostos + campos numéricos)
+	function criarFiltroIntervalo(opcoes) {
+		var minRange = document.getElementById(opcoes.minRangeId);
+		var maxRange = document.getElementById(opcoes.maxRangeId);
+		var minInput = document.getElementById(opcoes.minInputId);
+		var maxInput = document.getElementById(opcoes.maxInputId);
+		var fill = document.getElementById(opcoes.fillId);
+
+		if (!minRange || !maxRange || !minInput || !maxInput || !fill) {
+			return null;
+		}
+
+		var limiteMin = parseFloat(minRange.min);
+		var limiteMax = parseFloat(minRange.max);
+
+		function atualizarFill() {
+			var minVal = parseFloat(minRange.value);
+			var maxVal = parseFloat(maxRange.value);
+			var minPct = ((minVal - limiteMin) / (limiteMax - limiteMin)) * 100;
+			var maxPct = ((maxVal - limiteMin) / (limiteMax - limiteMin)) * 100;
+			fill.style.left = minPct + '%';
+			fill.style.width = (maxPct - minPct) + '%';
+		}
+
+		function doRange() {
+			var minVal = parseFloat(minRange.value);
+			var maxVal = parseFloat(maxRange.value);
+			if (minVal > maxVal) {
+				minVal = maxVal;
+				minRange.value = minVal;
+			}
+			minInput.value = minVal;
+			maxInput.value = maxVal;
+			atualizarFill();
+			opcoes.onChange(minVal, maxVal);
+		}
+
+		function doInput() {
+			var minVal = clamp(parseFloat(minInput.value) || limiteMin, limiteMin, limiteMax);
+			var maxVal = clamp(parseFloat(maxInput.value) || limiteMax, limiteMin, limiteMax);
+			if (minVal > maxVal) {
+				maxVal = minVal;
+			}
+			minInput.value = minVal;
+			maxInput.value = maxVal;
+			minRange.value = minVal;
+			maxRange.value = maxVal;
+			atualizarFill();
+			opcoes.onChange(minVal, maxVal);
+		}
+
+		minRange.addEventListener('input', doRange);
+		maxRange.addEventListener('input', doRange);
+		minInput.addEventListener('change', doInput);
+		maxInput.addEventListener('change', doInput);
+
+		atualizarFill();
+
+		return {
+			resetar: function () {
+				minRange.value = limiteMin;
+				maxRange.value = limiteMax;
+				minInput.value = limiteMin;
+				maxInput.value = limiteMax;
+				atualizarFill();
+				opcoes.onChange(limiteMin, limiteMax);
+			}
+		};
+	}
+
+	var filtroValorSlider = criarFiltroIntervalo({
+		minRangeId: 'valorMinRange',
+		maxRangeId: 'valorMaxRange',
+		minInputId: 'valorMinInput',
+		maxInputId: 'valorMaxInput',
+		fillId: 'valorFill',
+		onChange: function (min, max) {
+			faixaAtual.valorMin = min;
+			faixaAtual.valorMax = max;
+			aplicarFiltros();
+		}
+	});
+
+	var filtroTamanhoSlider = criarFiltroIntervalo({
+		minRangeId: 'tamanhoMinRange',
+		maxRangeId: 'tamanhoMaxRange',
+		minInputId: 'tamanhoMinInput',
+		maxInputId: 'tamanhoMaxInput',
+		fillId: 'tamanhoFill',
+		onChange: function (min, max) {
+			faixaAtual.tamanhoMin = min;
+			faixaAtual.tamanhoMax = max;
+			aplicarFiltros();
+		}
+	});
+
+	if (filtroLocalizacao) {
+		filtroLocalizacao.addEventListener('change', aplicarFiltros);
 	}
 
 	if (limparFiltros) {
 		limparFiltros.addEventListener('click', function () {
-			filtroValor.value = '';
-			filtroTamanho.value = '';
-			filtroLocalizacao.value = '';
+			if (filtroValorSlider) {
+				filtroValorSlider.resetar();
+			}
+			if (filtroTamanhoSlider) {
+				filtroTamanhoSlider.resetar();
+			}
+			if (filtroLocalizacao) {
+				filtroLocalizacao.value = '';
+			}
 			aplicarFiltros();
 		});
 	}
+
+	aplicarFiltros();
 
 	// ---------- Busca -> WhatsApp ----------
 	var formBusca = document.getElementById('formBusca');

@@ -192,25 +192,33 @@
 			</div>
 
 			<div class="property-filters">
-				<div class="field-group">
-					<label for="filtroValor">Faixa de valor</label>
-					<select id="filtroValor">
-						<option value="">Todas as faixas</option>
-						<option value="até R$ 200 mil">até R$ 200 mil</option>
-						<option value="entre R$ 200 e 400 mil">entre R$ 200 e 400 mil</option>
-						<option value="entre R$ 400 e 700 mil">entre R$ 400 e 700 mil</option>
-						<option value="acima de R$ 700 mil">acima de R$ 700 mil</option>
-					</select>
+				<div class="field-group filter-range">
+					<label>Faixa de valor (R$)</label>
+					<div class="range-values">
+						<input type="number" id="valorMinInput" min="0" max="1000000" step="10000" value="0" aria-label="Valor mínimo">
+						<span>até</span>
+						<input type="number" id="valorMaxInput" min="0" max="1000000" step="10000" value="1000000" aria-label="Valor máximo">
+					</div>
+					<div class="range-slider">
+						<div class="range-slider-track"></div>
+						<div class="range-slider-fill" id="valorFill"></div>
+						<input type="range" id="valorMinRange" min="0" max="1000000" step="10000" value="0" aria-label="Valor mínimo (controle deslizante)">
+						<input type="range" id="valorMaxRange" min="0" max="1000000" step="10000" value="1000000" aria-label="Valor máximo (controle deslizante)">
+					</div>
 				</div>
-				<div class="field-group">
-					<label for="filtroTamanho">Tamanho (m&sup2;)</label>
-					<select id="filtroTamanho">
-						<option value="">Todos os tamanhos</option>
-						<option value="até 50 m²">até 50 m&sup2;</option>
-						<option value="entre 50 e 100 m²">entre 50 e 100 m&sup2;</option>
-						<option value="entre 100 e 150 m²">entre 100 e 150 m&sup2;</option>
-						<option value="acima de 150 m²">acima de 150 m&sup2;</option>
-					</select>
+				<div class="field-group filter-range">
+					<label>Tamanho (m&sup2;)</label>
+					<div class="range-values">
+						<input type="number" id="tamanhoMinInput" min="0" max="200" step="5" value="0" aria-label="Tamanho mínimo">
+						<span>até</span>
+						<input type="number" id="tamanhoMaxInput" min="0" max="200" step="5" value="200" aria-label="Tamanho máximo">
+					</div>
+					<div class="range-slider">
+						<div class="range-slider-track"></div>
+						<div class="range-slider-fill" id="tamanhoFill"></div>
+						<input type="range" id="tamanhoMinRange" min="0" max="200" step="5" value="0" aria-label="Tamanho mínimo (controle deslizante)">
+						<input type="range" id="tamanhoMaxRange" min="0" max="200" step="5" value="200" aria-label="Tamanho máximo (controle deslizante)">
+					</div>
 				</div>
 				<div class="field-group">
 					<label for="filtroLocalizacao">Localização</label>
@@ -226,7 +234,7 @@
 
 			<!-- EXEMPLO: substitua estes cards pelos imóveis reais conforme forem cadastrados -->
 			<div class="property-grid" id="propertyGrid">
-				<article class="property-card" data-price="entre R$ 400 e 700 mil" data-size="entre 50 e 100 m²" data-location="Espinheiro">
+				<article class="property-card" data-price="550000" data-size="90" data-location="Espinheiro">
 					<div class="property-thumb">
 						<svg class="icon"><use href="#icon-building"></use></svg>
 						<span class="property-badge">Venda</span>
@@ -234,12 +242,12 @@
 					<div class="property-body">
 						<h3>Apartamento no Espinheiro</h3>
 						<p class="property-meta">3 quartos &middot; 2 vagas &middot; 90 m&sup2;</p>
-						<p class="property-price">entre R$ 400 e 700 mil</p>
+						<p class="property-price">R$ 550.000</p>
 						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Apartamento%20no%20Espinheiro%20(Venda)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
 					</div>
 				</article>
 
-				<article class="property-card" data-price="acima de R$ 700 mil" data-size="acima de 150 m²" data-location="Casa Forte">
+				<article class="property-card" data-price="850000" data-size="180" data-location="Casa Forte">
 					<div class="property-thumb">
 						<svg class="icon"><use href="#icon-home"></use></svg>
 						<span class="property-badge">Venda</span>
@@ -247,12 +255,12 @@
 					<div class="property-body">
 						<h3>Casa em Casa Forte</h3>
 						<p class="property-meta">4 quartos &middot; 3 vagas &middot; 180 m&sup2;</p>
-						<p class="property-price">acima de R$ 700 mil</p>
+						<p class="property-price">R$ 850.000</p>
 						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Casa%20em%20Casa%20Forte%20(Venda)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
 					</div>
 				</article>
 
-				<article class="property-card" data-price="entre R$ 200 e 400 mil" data-size="entre 50 e 100 m²" data-location="Boa Viagem">
+				<article class="property-card" data-price="320000" data-size="68" data-location="Boa Viagem">
 					<div class="property-thumb">
 						<svg class="icon"><use href="#icon-building"></use></svg>
 						<span class="property-badge">Venda</span>
@@ -260,12 +268,12 @@
 					<div class="property-body">
 						<h3>Apartamento em Boa Viagem</h3>
 						<p class="property-meta">2 quartos &middot; 1 vaga &middot; 68 m&sup2;</p>
-						<p class="property-price">entre R$ 200 e 400 mil</p>
+						<p class="property-price">R$ 320.000</p>
 						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Apartamento%20em%20Boa%20Viagem%20(Venda)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
 					</div>
 				</article>
 
-				<article class="property-card" data-price="até R$ 200 mil" data-size="entre 50 e 100 m²" data-location="Espinheiro">
+				<article class="property-card" data-price="150000" data-size="72" data-location="Espinheiro">
 					<div class="property-thumb">
 						<svg class="icon"><use href="#icon-key"></use></svg>
 						<span class="property-badge property-badge-alt">Aluguel</span>
@@ -273,12 +281,12 @@
 					<div class="property-body">
 						<h3>Apartamento no Espinheiro</h3>
 						<p class="property-meta">2 quartos &middot; 1 vaga &middot; 72 m&sup2;</p>
-						<p class="property-price">até R$ 200 mil</p>
+						<p class="property-price">R$ 150.000</p>
 						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Apartamento%20no%20Espinheiro%20(Aluguel)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
 					</div>
 				</article>
 
-				<article class="property-card" data-price="até R$ 200 mil" data-size="até 50 m²" data-location="Espinheiro">
+				<article class="property-card" data-price="90000" data-size="40" data-location="Espinheiro">
 					<div class="property-thumb">
 						<svg class="icon"><use href="#icon-building"></use></svg>
 						<span class="property-badge property-badge-alt">Aluguel</span>
@@ -286,12 +294,12 @@
 					<div class="property-body">
 						<h3>Sala comercial no Espinheiro</h3>
 						<p class="property-meta">Sala &middot; 1 vaga &middot; 40 m&sup2;</p>
-						<p class="property-price">até R$ 200 mil</p>
+						<p class="property-price">R$ 90.000</p>
 						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Sala%20comercial%20no%20Espinheiro%20(Aluguel)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
 					</div>
 				</article>
 
-				<article class="property-card" data-price="entre R$ 400 e 700 mil" data-size="entre 100 e 150 m²" data-location="Boa Viagem">
+				<article class="property-card" data-price="480000" data-size="140" data-location="Boa Viagem">
 					<div class="property-thumb">
 						<svg class="icon"><use href="#icon-home"></use></svg>
 						<span class="property-badge property-badge-alt">Aluguel</span>
@@ -299,12 +307,12 @@
 					<div class="property-body">
 						<h3>Casa em Boa Viagem</h3>
 						<p class="property-meta">3 quartos &middot; 2 vagas &middot; 140 m&sup2;</p>
-						<p class="property-price">entre R$ 400 e 700 mil</p>
+						<p class="property-price">R$ 480.000</p>
 						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Casa%20em%20Boa%20Viagem%20(Aluguel)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
 					</div>
 				</article>
 
-				<article class="property-card" data-price="entre R$ 200 e 400 mil" data-size="entre 50 e 100 m²" data-location="Espinheiro">
+				<article class="property-card" data-price="320000" data-size="70" data-location="Espinheiro">
 					<div class="property-thumb">
 						<svg class="icon"><use href="#icon-rocket"></use></svg>
 						<span class="property-badge property-badge-launch">Lançamento</span>
@@ -317,7 +325,7 @@
 					</div>
 				</article>
 
-				<article class="property-card" data-price="entre R$ 400 e 700 mil" data-size="entre 100 e 150 m²" data-location="Casa Forte">
+				<article class="property-card" data-price="550000" data-size="110" data-location="Casa Forte">
 					<div class="property-thumb">
 						<svg class="icon"><use href="#icon-rocket"></use></svg>
 						<span class="property-badge property-badge-launch">Lançamento</span>
