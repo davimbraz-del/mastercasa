@@ -26,33 +26,51 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
-	// ---------- Abas de imóveis em destaque ----------
-	var tabButtons = document.querySelectorAll('.tab-btn');
-	var tabPanels = document.querySelectorAll('.tab-panel');
+	// ---------- Filtro de imóveis ----------
+	var filtroValor = document.getElementById('filtroValor');
+	var filtroTamanho = document.getElementById('filtroTamanho');
+	var filtroLocalizacao = document.getElementById('filtroLocalizacao');
+	var limparFiltros = document.getElementById('limparFiltros');
+	var propertyCards = document.querySelectorAll('.property-card');
+	var noResults = document.getElementById('noResults');
 
-	tabButtons.forEach(function (btn) {
-		btn.addEventListener('click', function () {
-			var target = btn.getAttribute('data-tab');
+	function aplicarFiltros() {
+		var valor = filtroValor.value;
+		var tamanho = filtroTamanho.value;
+		var localizacao = filtroLocalizacao.value;
+		var visiveis = 0;
 
-			tabButtons.forEach(function (b) {
-				b.classList.remove('is-active');
-				b.setAttribute('aria-selected', 'false');
-			});
-			tabPanels.forEach(function (p) {
-				p.classList.remove('is-active');
-				p.hidden = true;
-			});
+		propertyCards.forEach(function (card) {
+			var combina =
+				(!valor || card.getAttribute('data-price') === valor) &&
+				(!tamanho || card.getAttribute('data-size') === tamanho) &&
+				(!localizacao || card.getAttribute('data-location') === localizacao);
 
-			btn.classList.add('is-active');
-			btn.setAttribute('aria-selected', 'true');
-
-			var panel = document.querySelector('.tab-panel[data-panel="' + target + '"]');
-			if (panel) {
-				panel.classList.add('is-active');
-				panel.hidden = false;
+			card.hidden = !combina;
+			if (combina) {
+				visiveis++;
 			}
 		});
-	});
+
+		if (noResults) {
+			noResults.hidden = visiveis !== 0;
+		}
+	}
+
+	if (filtroValor && filtroTamanho && filtroLocalizacao) {
+		[filtroValor, filtroTamanho, filtroLocalizacao].forEach(function (select) {
+			select.addEventListener('change', aplicarFiltros);
+		});
+	}
+
+	if (limparFiltros) {
+		limparFiltros.addEventListener('click', function () {
+			filtroValor.value = '';
+			filtroTamanho.value = '';
+			filtroLocalizacao.value = '';
+			aplicarFiltros();
+		});
+	}
 
 	// ---------- Busca -> WhatsApp ----------
 	var formBusca = document.getElementById('formBusca');
