@@ -26,6 +26,34 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
+	// ---------- Abas de imóveis em destaque ----------
+	var tabButtons = document.querySelectorAll('.tab-btn');
+	var tabPanels = document.querySelectorAll('.tab-panel');
+
+	tabButtons.forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			var target = btn.getAttribute('data-tab');
+
+			tabButtons.forEach(function (b) {
+				b.classList.remove('is-active');
+				b.setAttribute('aria-selected', 'false');
+			});
+			tabPanels.forEach(function (p) {
+				p.classList.remove('is-active');
+				p.hidden = true;
+			});
+
+			btn.classList.add('is-active');
+			btn.setAttribute('aria-selected', 'true');
+
+			var panel = document.querySelector('.tab-panel[data-panel="' + target + '"]');
+			if (panel) {
+				panel.classList.add('is-active');
+				panel.hidden = false;
+			}
+		});
+	});
+
 	// ---------- Busca -> WhatsApp ----------
 	var formBusca = document.getElementById('formBusca');
 

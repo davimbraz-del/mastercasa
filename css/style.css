@@ -376,13 +376,10 @@ ul {
 
 .hero-inner {
 	position: relative;
-	display: grid;
-	grid-template-columns: 1.1fr 0.9fr;
-	gap: 56px;
-	align-items: start;
+	max-width: 700px;
 }
 
-.hero-text h1 {
+.hero-inner h1 {
 	color: #ffffff;
 	font-size: 40px;
 	font-weight: 700;
@@ -390,10 +387,10 @@ ul {
 	line-height: 1.25;
 }
 
-.hero-text p {
+.hero-inner p {
 	color: rgba(255, 255, 255, 0.78);
 	font-size: 16px;
-	max-width: 460px;
+	max-width: 520px;
 }
 
 .hero-cta {
@@ -436,19 +433,13 @@ ul {
 
 /* Search / lead card */
 
-.hero-search {
+.search-card {
 	background: #ffffff;
 	border-radius: var(--radius-lg);
 	padding: 28px;
-	box-shadow: 0 24px 48px rgba(3, 10, 30, 0.35);
+	box-shadow: var(--shadow-hover);
 	color: var(--color-text);
 	border-top: 4px solid var(--color-red);
-}
-
-.hero-search h2 {
-	font-size: 19px;
-	font-weight: 700;
-	margin-bottom: 20px;
 }
 
 .search-form {
@@ -493,14 +484,155 @@ ul {
 	margin-top: 6px;
 }
 
-/* ---------- Cards grid (categories & services) ---------- */
+/* ---------- Featured properties (tabs) ---------- */
 
-.categories,
-.services {
+.featured {
 	padding: 88px 0;
 }
 
+.section-sub {
+	color: var(--color-text-light);
+	font-size: 15px;
+}
+
+.tabs {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	border-bottom: 1px solid var(--color-border);
+	margin-bottom: 40px;
+}
+
+.tab-btn {
+	background: none;
+	border: none;
+	border-bottom: 3px solid transparent;
+	padding: 12px 20px;
+	font-family: var(--font-body);
+	font-weight: 700;
+	font-size: 14px;
+	letter-spacing: 0.3px;
+	color: var(--color-text-light);
+	cursor: pointer;
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.tab-btn:hover {
+	color: var(--color-navy);
+}
+
+.tab-btn.is-active {
+	color: var(--color-navy);
+	border-color: var(--color-red);
+}
+
+.tab-panel[hidden] {
+	display: none;
+}
+
+.property-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 28px;
+}
+
+.property-card {
+	background: #ffffff;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	overflow: hidden;
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.property-card:hover {
+	box-shadow: var(--shadow-hover);
+	transform: translateY(-4px);
+}
+
+.property-thumb {
+	position: relative;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--color-bg-alt);
+	border-bottom: 1px solid var(--color-border);
+	color: var(--color-border);
+}
+
+.property-thumb .icon {
+	width: 46px;
+	height: 46px;
+}
+
+.property-badge {
+	position: absolute;
+	top: 14px;
+	left: 14px;
+	background: var(--color-navy);
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.4px;
+	text-transform: uppercase;
+	padding: 5px 11px;
+	border-radius: var(--radius-sm);
+}
+
+.property-badge-alt {
+	background: var(--color-whatsapp-dark);
+}
+
+.property-badge-launch {
+	background: var(--color-red);
+}
+
+.property-body {
+	padding: 22px 22px 26px;
+}
+
+.property-body h3 {
+	font-size: 17px;
+	margin-bottom: 8px;
+}
+
+.property-meta {
+	font-size: 13px;
+	color: var(--color-text-light);
+	margin-bottom: 10px;
+}
+
+.property-price {
+	font-weight: 700;
+	color: var(--color-navy);
+	font-size: 14px;
+	margin-bottom: 16px;
+}
+
+/* ---------- Busca / lead capture (próximo do final) ---------- */
+
+.search-cta {
+	padding: 88px 0;
+	background: var(--color-bg-alt);
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+}
+
+.search-cta-inner {
+	display: grid;
+	grid-template-columns: 0.8fr 1.2fr;
+	gap: 56px;
+	align-items: center;
+}
+
+.search-cta-text p {
+	color: var(--color-text-light);
+}
+
+/* ---------- Cards grid (services) ---------- */
+
 .services {
+	padding: 88px 0;
 	background: var(--color-bg-alt);
 }
 
@@ -510,7 +642,6 @@ ul {
 	gap: 28px;
 }
 
-.category-card,
 .service-card {
 	position: relative;
 	background: #ffffff;
@@ -521,13 +652,11 @@ ul {
 	transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.category-card:hover,
 .service-card:hover {
 	border-top-color: var(--color-red);
 	box-shadow: var(--shadow-hover);
 }
 
-.category-icon,
 .service-icon {
 	display: flex;
 	align-items: center;
@@ -541,33 +670,13 @@ ul {
 	margin-bottom: 22px;
 }
 
-.category-card h3,
 .service-card h3 {
 	font-size: 19px;
 }
 
-.category-card p,
 .service-card p {
 	color: var(--color-text-light);
 	font-size: 15px;
-}
-
-.card-link {
-	display: inline-flex;
-	align-items: center;
-	gap: 6px;
-	font-weight: 700;
-	color: var(--color-red);
-	font-size: 14px;
-	margin-top: 8px;
-}
-
-.card-link svg {
-	transition: transform 0.15s ease;
-}
-
-.card-link:hover svg {
-	transform: translateX(4px);
 }
 
 /* ---------- About ---------- */
@@ -887,12 +996,9 @@ ul {
    ========================================================================== */
 
 @media (max-width: 960px) {
-	.hero-inner {
-		grid-template-columns: 1fr;
-	}
-
 	.about-inner,
-	.contact-inner {
+	.contact-inner,
+	.search-cta-inner {
 		grid-template-columns: 1fr;
 	}
 
@@ -900,7 +1006,8 @@ ul {
 		order: -1;
 	}
 
-	.cards-grid {
+	.cards-grid,
+	.property-grid {
 		grid-template-columns: 1fr 1fr;
 	}
 
@@ -950,7 +1057,7 @@ ul {
 		display: none;
 	}
 
-	.hero-text h1 {
+	.hero-inner h1 {
 		font-size: 30px;
 	}
 
@@ -962,8 +1069,18 @@ ul {
 		grid-template-columns: 1fr;
 	}
 
-	.cards-grid {
+	.cards-grid,
+	.property-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.tabs {
+		gap: 0;
+	}
+
+	.tab-btn {
+		padding: 10px 12px;
+		font-size: 13px;
 	}
 
 	.about-features {

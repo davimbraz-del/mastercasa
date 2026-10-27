@@ -144,7 +144,7 @@
 
 			<nav class="main-nav" id="mainNav">
 				<ul>
-					<li><a href="#imoveis">Imóveis</a></li>
+					<li><a href="#destaques">Imóveis</a></li>
 					<li><a href="#servicos">Serviços</a></li>
 					<li><a href="#empresa">A empresa</a></li>
 					<li><a href="#contato">Contato</a></li>
@@ -166,102 +166,151 @@
 	<section class="hero">
 		<svg class="hero-motif" aria-hidden="true"><use href="#icon-columns"></use></svg>
 		<div class="container hero-inner">
-			<div class="hero-text">
-				<span class="eyebrow">Imobiliária em Recife/PE</span>
-				<h1>Tradição e confiança na hora de decidir sobre o seu imóvel</h1>
-				<p>A Mastercasa acompanha você na compra, locação e investimento em imóveis no Espinheiro e em toda a Grande Recife, com atendimento próximo do início ao fim do negócio.</p>
-				<div class="hero-cta">
-					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20corretor." target="_blank" rel="noopener" class="btn btn-whatsapp">
-						<svg class="icon"><use href="#icon-whatsapp"></use></svg> Falar com um corretor
-					</a>
-					<a href="#imoveis" class="btn btn-outline-light">Ver imóveis</a>
-				</div>
-
-				<ul class="trust-strip">
-					<li><svg class="icon"><use href="#icon-badge-check"></use></svg> CRECI 7409-J</li>
-					<li><svg class="icon"><use href="#icon-users"></use></svg> Atendimento personalizado</li>
-					<li><svg class="icon"><use href="#icon-map-pin"></use></svg> Espinheiro, Recife/PE</li>
-				</ul>
+			<span class="eyebrow">Imobiliária em Recife/PE</span>
+			<h1>Tradição e confiança na hora de decidir sobre o seu imóvel</h1>
+			<p>A Mastercasa acompanha você na compra, locação e investimento em imóveis no Espinheiro e em toda a Grande Recife, com atendimento próximo do início ao fim do negócio.</p>
+			<div class="hero-cta">
+				<a href="#destaques" class="btn btn-primary">Ver imóveis em destaque</a>
+				<a href="#empresa" class="btn btn-outline-light">Conhecer a Mastercasa</a>
 			</div>
 
-			<!-- BUSCA / CAPTAÇÃO DE LEAD -->
-			<div class="hero-search" id="busca">
-				<h2>O que você está procurando?</h2>
-				<form id="formBusca" class="search-form">
-					<div class="field-group">
-						<label for="pretensao">Eu quero</label>
-						<select id="pretensao" required>
-							<option value="Comprar">Comprar</option>
-							<option value="Alugar">Alugar</option>
-							<option value="Conhecer lançamentos">Conhecer lançamentos</option>
-						</select>
-					</div>
-					<div class="field-group">
-						<label for="tipoImovel">Tipo de imóvel</label>
-						<select id="tipoImovel">
-							<option value="Apartamento">Apartamento</option>
-							<option value="Casa">Casa</option>
-							<option value="Terreno">Terreno</option>
-							<option value="Sala comercial">Sala comercial</option>
-							<option value="Outro">Outro</option>
-						</select>
-					</div>
-					<div class="field-group">
-						<label for="regiao">Bairro / região</label>
-						<input type="text" id="regiao" placeholder="Ex: Espinheiro, Boa Viagem, Casa Forte...">
-					</div>
-					<div class="field-group">
-						<label for="faixaValor">Faixa de valor</label>
-						<select id="faixaValor">
-							<option value="">Sem preferência</option>
-							<option value="até R$ 200 mil">até R$ 200 mil</option>
-							<option value="entre R$ 200 e 400 mil">entre R$ 200 e 400 mil</option>
-							<option value="entre R$ 400 e 700 mil">entre R$ 400 e 700 mil</option>
-							<option value="acima de R$ 700 mil">acima de R$ 700 mil</option>
-						</select>
-					</div>
-					<button type="submit" class="btn btn-whatsapp btn-block">
-						<svg class="icon"><use href="#icon-whatsapp"></use></svg> Buscar pelo WhatsApp
-					</button>
-				</form>
-			</div>
+			<ul class="trust-strip">
+				<li><svg class="icon"><use href="#icon-badge-check"></use></svg> CRECI 7409-J</li>
+				<li><svg class="icon"><use href="#icon-users"></use></svg> Atendimento personalizado</li>
+				<li><svg class="icon"><use href="#icon-map-pin"></use></svg> Espinheiro, Recife/PE</li>
+			</ul>
 		</div>
 	</section>
 
-	<!-- CATEGORIAS DE IMÓVEIS -->
-	<section class="categories" id="imoveis">
+	<!-- DESTAQUES DE IMÓVEIS -->
+	<section class="featured" id="destaques">
 		<div class="container">
 			<div class="section-head">
-				<span class="eyebrow eyebrow-dark">Imóveis</span>
-				<h2>Para todo momento da sua vida</h2>
+				<span class="eyebrow eyebrow-dark">Destaques</span>
+				<h2>Imóveis em destaque</h2>
+				<p class="section-sub">Conheça alguns dos imóveis disponíveis. Em breve, mais opções por aqui.</p>
 			</div>
 
-			<div class="cards-grid">
-				<div class="category-card">
-					<div class="category-icon"><svg class="icon"><use href="#icon-rocket"></use></svg></div>
-					<h3>Lançamentos</h3>
-					<p>Empreendimentos novos, na planta ou prontos, com as melhores condições de pagamento.</p>
-					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20em%20Lan%C3%A7amentos." target="_blank" rel="noopener" class="card-link">
-						Quero saber mais <svg class="icon"><use href="#icon-arrow-right"></use></svg>
-					</a>
-				</div>
+			<div class="tabs" id="tabsImoveis" role="tablist">
+				<button type="button" class="tab-btn is-active" data-tab="venda" role="tab" aria-selected="true">Venda</button>
+				<button type="button" class="tab-btn" data-tab="aluguel" role="tab" aria-selected="false">Aluguel</button>
+				<button type="button" class="tab-btn" data-tab="lancamentos" role="tab" aria-selected="false">Lançamentos</button>
+			</div>
 
-				<div class="category-card">
-					<div class="category-icon"><svg class="icon"><use href="#icon-building"></use></svg></div>
-					<h3>Residenciais</h3>
-					<p>Casas e apartamentos para comprar em bairros como Espinheiro, Boa Viagem e Casa Forte.</p>
-					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20em%20Im%C3%B3veis%20Residenciais." target="_blank" rel="noopener" class="card-link">
-						Quero saber mais <svg class="icon"><use href="#icon-arrow-right"></use></svg>
-					</a>
-				</div>
+			<!-- EXEMPLO: substitua estes cards pelos imóveis reais conforme forem cadastrados -->
+			<div class="tab-panel is-active" data-panel="venda">
+				<div class="property-grid">
+					<article class="property-card">
+						<div class="property-thumb">
+							<svg class="icon"><use href="#icon-building"></use></svg>
+							<span class="property-badge">Venda</span>
+						</div>
+						<div class="property-body">
+							<h3>Apartamento no Espinheiro</h3>
+							<p class="property-meta">3 quartos &middot; 2 vagas &middot; 90 m&sup2;</p>
+							<p class="property-price">Valor sob consulta</p>
+							<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Apartamento%20no%20Espinheiro%20(Venda)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
+						</div>
+					</article>
 
-				<div class="category-card">
-					<div class="category-icon"><svg class="icon"><use href="#icon-key"></use></svg></div>
-					<h3>Aluguéis</h3>
-					<p>Imóveis residenciais e comerciais para alugar, com contrato seguro e suporte completo.</p>
-					<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20em%20Alugar%20um%20im%C3%B3vel." target="_blank" rel="noopener" class="card-link">
-						Quero saber mais <svg class="icon"><use href="#icon-arrow-right"></use></svg>
-					</a>
+					<article class="property-card">
+						<div class="property-thumb">
+							<svg class="icon"><use href="#icon-home"></use></svg>
+							<span class="property-badge">Venda</span>
+						</div>
+						<div class="property-body">
+							<h3>Casa em Casa Forte</h3>
+							<p class="property-meta">4 quartos &middot; 3 vagas &middot; 180 m&sup2;</p>
+							<p class="property-price">Valor sob consulta</p>
+							<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Casa%20em%20Casa%20Forte%20(Venda)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
+						</div>
+					</article>
+
+					<article class="property-card">
+						<div class="property-thumb">
+							<svg class="icon"><use href="#icon-building"></use></svg>
+							<span class="property-badge">Venda</span>
+						</div>
+						<div class="property-body">
+							<h3>Apartamento em Boa Viagem</h3>
+							<p class="property-meta">2 quartos &middot; 1 vaga &middot; 68 m&sup2;</p>
+							<p class="property-price">Valor sob consulta</p>
+							<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Apartamento%20em%20Boa%20Viagem%20(Venda)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
+						</div>
+					</article>
+				</div>
+			</div>
+
+			<div class="tab-panel" data-panel="aluguel" hidden>
+				<div class="property-grid">
+					<article class="property-card">
+						<div class="property-thumb">
+							<svg class="icon"><use href="#icon-key"></use></svg>
+							<span class="property-badge property-badge-alt">Aluguel</span>
+						</div>
+						<div class="property-body">
+							<h3>Apartamento no Espinheiro</h3>
+							<p class="property-meta">2 quartos &middot; 1 vaga &middot; 72 m&sup2;</p>
+							<p class="property-price">Valor sob consulta</p>
+							<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Apartamento%20no%20Espinheiro%20(Aluguel)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
+						</div>
+					</article>
+
+					<article class="property-card">
+						<div class="property-thumb">
+							<svg class="icon"><use href="#icon-building"></use></svg>
+							<span class="property-badge property-badge-alt">Aluguel</span>
+						</div>
+						<div class="property-body">
+							<h3>Sala comercial no Espinheiro</h3>
+							<p class="property-meta">Sala &middot; 1 vaga &middot; 40 m&sup2;</p>
+							<p class="property-price">Valor sob consulta</p>
+							<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Sala%20comercial%20no%20Espinheiro%20(Aluguel)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
+						</div>
+					</article>
+
+					<article class="property-card">
+						<div class="property-thumb">
+							<svg class="icon"><use href="#icon-home"></use></svg>
+							<span class="property-badge property-badge-alt">Aluguel</span>
+						</div>
+						<div class="property-body">
+							<h3>Casa em Boa Viagem</h3>
+							<p class="property-meta">3 quartos &middot; 2 vagas &middot; 140 m&sup2;</p>
+							<p class="property-price">Valor sob consulta</p>
+							<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Casa%20em%20Boa%20Viagem%20(Aluguel)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
+						</div>
+					</article>
+				</div>
+			</div>
+
+			<div class="tab-panel" data-panel="lancamentos" hidden>
+				<div class="property-grid">
+					<article class="property-card">
+						<div class="property-thumb">
+							<svg class="icon"><use href="#icon-rocket"></use></svg>
+							<span class="property-badge property-badge-launch">Lançamento</span>
+						</div>
+						<div class="property-body">
+							<h3>Residencial na planta &mdash; Espinheiro</h3>
+							<p class="property-meta">2 e 3 quartos &middot; Entrega prevista</p>
+							<p class="property-price">Condições especiais de pagamento</p>
+							<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20lan%C3%A7amento%3A%20Residencial%20na%20planta%20-%20Espinheiro." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
+						</div>
+					</article>
+
+					<article class="property-card">
+						<div class="property-thumb">
+							<svg class="icon"><use href="#icon-rocket"></use></svg>
+							<span class="property-badge property-badge-launch">Lançamento</span>
+						</div>
+						<div class="property-body">
+							<h3>Residencial na planta &mdash; Casa Forte</h3>
+							<p class="property-meta">3 e 4 quartos &middot; Entrega prevista</p>
+							<p class="property-price">Condições especiais de pagamento</p>
+							<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20lan%C3%A7amento%3A%20Residencial%20na%20planta%20-%20Casa%20Forte." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
+						</div>
+					</article>
 				</div>
 			</div>
 		</div>
@@ -341,6 +390,55 @@
 		</div>
 	</section>
 
+	<!-- BUSCA / CAPTAÇÃO DE LEAD (perto do final, depois que a pessoa já viu os imóveis) -->
+	<section class="search-cta" id="busca">
+		<div class="container search-cta-inner">
+			<div class="search-cta-text">
+				<span class="eyebrow eyebrow-dark">Não encontrou o que procura?</span>
+				<h2>Conte o que você precisa</h2>
+				<p>Descreva o imóvel que você está buscando e um corretor da Mastercasa entra em contato pelo WhatsApp.</p>
+			</div>
+
+			<form id="formBusca" class="search-form search-card">
+				<div class="field-group">
+					<label for="pretensao">Eu quero</label>
+					<select id="pretensao" required>
+						<option value="Comprar">Comprar</option>
+						<option value="Alugar">Alugar</option>
+						<option value="Conhecer lançamentos">Conhecer lançamentos</option>
+					</select>
+				</div>
+				<div class="field-group">
+					<label for="tipoImovel">Tipo de imóvel</label>
+					<select id="tipoImovel">
+						<option value="Apartamento">Apartamento</option>
+						<option value="Casa">Casa</option>
+						<option value="Terreno">Terreno</option>
+						<option value="Sala comercial">Sala comercial</option>
+						<option value="Outro">Outro</option>
+					</select>
+				</div>
+				<div class="field-group">
+					<label for="regiao">Bairro / região</label>
+					<input type="text" id="regiao" placeholder="Ex: Espinheiro, Boa Viagem, Casa Forte...">
+				</div>
+				<div class="field-group">
+					<label for="faixaValor">Faixa de valor</label>
+					<select id="faixaValor">
+						<option value="">Sem preferência</option>
+						<option value="até R$ 200 mil">até R$ 200 mil</option>
+						<option value="entre R$ 200 e 400 mil">entre R$ 200 e 400 mil</option>
+						<option value="entre R$ 400 e 700 mil">entre R$ 400 e 700 mil</option>
+						<option value="acima de R$ 700 mil">acima de R$ 700 mil</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-whatsapp btn-block">
+					<svg class="icon"><use href="#icon-whatsapp"></use></svg> Buscar pelo WhatsApp
+				</button>
+			</form>
+		</div>
+	</section>
+
 	<!-- CONTATO -->
 	<section class="contact" id="contato">
 		<div class="container contact-inner">
@@ -406,7 +504,7 @@
 			<div class="footer-col">
 				<h5>Menu</h5>
 				<ul>
-					<li><a href="#imoveis">Imóveis</a></li>
+					<li><a href="#destaques">Imóveis</a></li>
 					<li><a href="#servicos">Serviços</a></li>
 					<li><a href="#empresa">A empresa</a></li>
 					<li><a href="#contato">Contato</a></li>
