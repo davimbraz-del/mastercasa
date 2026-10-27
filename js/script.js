@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			var tipoImovel = document.getElementById('tipoImovel').value;
 			var regiao = document.getElementById('regiao').value.trim();
 			var faixaValor = document.getElementById('faixaValor').value;
+			var quartos = document.getElementById('quartos').value;
+			var tamanho = document.getElementById('tamanho').value;
 
 			var partes = [
 				'Olá! Vim pelo site da Mastercasa.',
@@ -78,6 +80,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			if (faixaValor) {
 				partes.push('Faixa de valor: ' + faixaValor + '.');
+			}
+
+			if (quartos) {
+				partes.push('Quartos: ' + quartos + '.');
+			}
+
+			if (tamanho) {
+				partes.push('Tamanho: ' + tamanho + '.');
 			}
 
 			var mensagem = encodeURIComponent(partes.join(' '));
