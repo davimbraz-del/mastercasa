@@ -21,7 +21,9 @@
 
 			window.mastercasaDB.auth.signInWithPassword({ email: email, password: senha }).then(function (resposta) {
 				if (resposta.error) {
-					erroEl.textContent = 'E-mail ou senha incorretos.';
+					erroEl.textContent = resposta.error.message === 'Email not confirmed'
+						? 'Seu e-mail ainda não foi confirmado. Confirme pelo link enviado ou peça ao administrador do Supabase para confirmar manualmente.'
+						: 'E-mail ou senha incorretos.';
 					erroEl.hidden = false;
 					return;
 				}
