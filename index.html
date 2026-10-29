@@ -197,6 +197,7 @@
 			</div>
 
 			<div class="property-filters">
+				<div class="property-filters-fields">
 				<div class="field-group filter-range">
 					<label>Faixa de valor (R$)</label>
 					<div class="range-values">
@@ -240,7 +241,10 @@
 						<option value="Boa Viagem">Boa Viagem</option>
 					</select>
 				</div>
-				<button type="button" id="limparFiltros" class="btn btn-outline">Limpar filtros</button>
+				</div>
+				<button type="button" id="limparFiltros" class="filters-clear-btn">
+					<svg class="icon"><use href="#icon-close"></use></svg> Limpar filtros
+				</button>
 			</div>
 
 			<p class="loading-imoveis" id="loadingImoveis">Carregando imóveis...</p>
