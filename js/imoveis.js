@@ -25,7 +25,7 @@
 		favoriteIds: {},
 		usuarioLogado: null,
 		sliders: {},
-		filtros: { valorMin: 0, valorMax: 1000000, tamanhoMin: 0, tamanhoMax: 200, localizacao: '' }
+		filtros: { valorMin: 0, valorMax: 5000000, tamanhoMin: 0, tamanhoMax: 200, localizacao: '' }
 	};
 
 	var els = {};
@@ -283,11 +283,10 @@
 		}
 	}
 
-	function clamp(valor, min, max) {
-		return Math.min(Math.max(valor, min), max);
-	}
-
-	// Slider de intervalo (dois controles sobrepostos + campos numéricos)
+	// Slider de intervalo (dois controles sobrepostos + campos numéricos).
+	// O valor digitado nunca é limitado ao máximo nominal do slider: o
+	// cursor visual fica "preso" na ponta, mas o número digitado vale
+	// de verdade no filtro (permite valores acima do topo da barra).
 	function criarFiltroIntervalo(opcoes) {
 		var minRange = document.getElementById(opcoes.minRangeId);
 		var maxRange = document.getElementById(opcoes.maxRangeId);
@@ -301,14 +300,24 @@
 
 		var limiteMin = parseFloat(minRange.min);
 		var limiteMax = parseFloat(minRange.max);
+		var atual = { min: limiteMin, max: limiteMax };
 
 		function atualizarFill() {
-			var minVal = parseFloat(minRange.value);
-			var maxVal = parseFloat(maxRange.value);
-			var minPct = ((minVal - limiteMin) / (limiteMax - limiteMin)) * 100;
-			var maxPct = ((maxVal - limiteMin) / (limiteMax - limiteMin)) * 100;
+			var minVisivel = Math.min(Math.max(atual.min, limiteMin), limiteMax);
+			var maxVisivel = Math.min(Math.max(atual.max, limiteMin), limiteMax);
+			var minPct = ((minVisivel - limiteMin) / (limiteMax - limiteMin)) * 100;
+			var maxPct = ((maxVisivel - limiteMin) / (limiteMax - limiteMin)) * 100;
 			fill.style.left = minPct + '%';
-			fill.style.width = (maxPct - minPct) + '%';
+			fill.style.width = Math.max(maxPct - minPct, 0) + '%';
+		}
+
+		function aplicar() {
+			minRange.value = atual.min;
+			maxRange.value = atual.max;
+			minInput.value = atual.min;
+			maxInput.value = atual.max;
+			atualizarFill();
+			opcoes.onChange(atual.min, atual.max);
 		}
 
 		function doRange() {
@@ -316,26 +325,29 @@
 			var maxVal = parseFloat(maxRange.value);
 			if (minVal > maxVal) {
 				minVal = maxVal;
-				minRange.value = minVal;
 			}
-			minInput.value = minVal;
-			maxInput.value = maxVal;
-			atualizarFill();
-			opcoes.onChange(minVal, maxVal);
+			atual.min = minVal;
+			atual.max = maxVal;
+			aplicar();
 		}
 
 		function doInput() {
-			var minVal = clamp(parseFloat(minInput.value) || limiteMin, limiteMin, limiteMax);
-			var maxVal = clamp(parseFloat(maxInput.value) || limiteMax, limiteMin, limiteMax);
+			var minVal = minInput.value === '' ? limiteMin : parseFloat(minInput.value);
+			var maxVal = maxInput.value === '' ? limiteMax : parseFloat(maxInput.value);
+			if (isNaN(minVal)) {
+				minVal = limiteMin;
+			}
+			if (isNaN(maxVal)) {
+				maxVal = limiteMax;
+			}
+			minVal = Math.max(minVal, limiteMin);
+			maxVal = Math.max(maxVal, limiteMin);
 			if (minVal > maxVal) {
 				maxVal = minVal;
 			}
-			minInput.value = minVal;
-			maxInput.value = maxVal;
-			minRange.value = minVal;
-			maxRange.value = maxVal;
-			atualizarFill();
-			opcoes.onChange(minVal, maxVal);
+			atual.min = minVal;
+			atual.max = maxVal;
+			aplicar();
 		}
 
 		minRange.addEventListener('input', doRange);
@@ -347,12 +359,9 @@
 
 		return {
 			resetar: function () {
-				minRange.value = limiteMin;
-				maxRange.value = limiteMax;
-				minInput.value = limiteMin;
-				maxInput.value = limiteMax;
-				atualizarFill();
-				opcoes.onChange(limiteMin, limiteMax);
+				atual.min = limiteMin;
+				atual.max = limiteMax;
+				aplicar();
 			}
 		};
 	}

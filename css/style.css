@@ -323,18 +323,35 @@ ul {
 }
 
 .main-nav a {
+	position: relative;
+	display: inline-block;
 	font-weight: 600;
 	font-size: 14px;
 	letter-spacing: 0.2px;
 	color: var(--color-text);
 	padding-bottom: 4px;
-	border-bottom: 2px solid transparent;
-	transition: color 0.15s ease, border-color 0.15s ease;
+	transition: color 0.2s ease;
+}
+
+.main-nav a::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 2px;
+	background: var(--color-red);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.25s ease;
 }
 
 .main-nav a:hover {
 	color: var(--color-red);
-	border-color: var(--color-red);
+}
+
+.main-nav a:hover::after {
+	transform: scaleX(1);
 }
 
 .header-actions {
@@ -540,6 +557,26 @@ ul {
 	color: var(--color-text);
 }
 
+.suffix-field {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+}
+
+.suffix-field input[type="number"] {
+	padding-right: 30px;
+}
+
+.suffix-field-unit {
+	position: absolute;
+	right: 11px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 12px;
+	color: var(--color-text-light);
+	pointer-events: none;
+}
+
 .range-values span {
 	font-size: 12px;
 	color: var(--color-text-light);
@@ -690,11 +727,24 @@ ul {
 }
 
 .favorite-btn.is-active {
-	color: var(--color-red);
+	color: #ff3b3b;
+	animation: favoritePop 0.3s ease;
 }
 
 .favorite-btn.is-active .icon {
 	fill: currentColor;
+}
+
+@keyframes favoritePop {
+	0% {
+		transform: scale(1);
+	}
+	40% {
+		transform: scale(1.35);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
 .loading-imoveis {

@@ -200,23 +200,29 @@
 				<div class="field-group filter-range">
 					<label>Faixa de valor (R$)</label>
 					<div class="range-values">
-						<input type="number" id="valorMinInput" min="0" max="1000000" step="10000" value="0" aria-label="Valor mínimo">
+						<input type="number" id="valorMinInput" min="0" step="10000" value="0" aria-label="Valor mínimo">
 						<span>até</span>
-						<input type="number" id="valorMaxInput" min="0" max="1000000" step="10000" value="1000000" aria-label="Valor máximo">
+						<input type="number" id="valorMaxInput" min="0" step="10000" value="5000000" aria-label="Valor máximo (sem limite)">
 					</div>
 					<div class="range-slider">
 						<div class="range-slider-track"></div>
 						<div class="range-slider-fill" id="valorFill"></div>
-						<input type="range" id="valorMinRange" min="0" max="1000000" step="10000" value="0" aria-label="Valor mínimo (controle deslizante)">
-						<input type="range" id="valorMaxRange" min="0" max="1000000" step="10000" value="1000000" aria-label="Valor máximo (controle deslizante)">
+						<input type="range" id="valorMinRange" min="0" max="5000000" step="10000" value="0" aria-label="Valor mínimo (controle deslizante)">
+						<input type="range" id="valorMaxRange" min="0" max="5000000" step="10000" value="5000000" aria-label="Valor máximo (controle deslizante)">
 					</div>
 				</div>
 				<div class="field-group filter-range">
 					<label>Tamanho (m&sup2;)</label>
 					<div class="range-values">
-						<input type="number" id="tamanhoMinInput" min="0" max="200" step="5" value="0" aria-label="Tamanho mínimo">
+						<div class="suffix-field">
+							<input type="number" id="tamanhoMinInput" min="0" step="5" value="0" aria-label="Tamanho mínimo">
+							<span class="suffix-field-unit">m&sup2;</span>
+						</div>
 						<span>até</span>
-						<input type="number" id="tamanhoMaxInput" min="0" max="200" step="5" value="200" aria-label="Tamanho máximo">
+						<div class="suffix-field">
+							<input type="number" id="tamanhoMaxInput" min="0" step="5" value="200" aria-label="Tamanho máximo (sem limite)">
+							<span class="suffix-field-unit">m&sup2;</span>
+						</div>
 					</div>
 					<div class="range-slider">
 						<div class="range-slider-track"></div>
