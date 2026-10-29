@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Painel do corretor - Mastercasa Imobiliária</title>
+	<meta name="robots" content="noindex, nofollow">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-body">
+
+	<div class="admin-topbar">
+		<div class="container admin-topbar-inner">
+			<div class="admin-topbar-brand">
+				MASTERCASA <span>Painel do corretor</span>
+			</div>
+			<div class="admin-topbar-user">
+				<span id="nomeUsuario"></span>
+				<button type="button" id="botaoSair" class="btn btn-outline-light btn-small">Sair</button>
+			</div>
+		</div>
+	</div>
+
+	<main class="admin-main">
+		<div class="container">
+			<div class="admin-card">
+				<div class="admin-card-head">
+					<h1>Imóveis cadastrados</h1>
+					<a href="imovel-form.html" class="btn btn-primary">+ Novo imóvel</a>
+				</div>
+
+				<table class="admin-table">
+					<thead>
+						<tr>
+							<th>Título</th>
+							<th>Tipo</th>
+							<th>Localização</th>
+							<th>Preço</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody id="listaImoveis"></tbody>
+				</table>
+
+				<p class="admin-empty" id="listaVazia" hidden>Nenhum imóvel cadastrado ainda. Clique em "+ Novo imóvel" para começar.</p>
+			</div>
+		</div>
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+	<script src="../js/supabase-config.js"></script>
+	<script src="../js/supabase-client.js"></script>
+	<script src="../js/admin-auth.js"></script>
+	<script src="../js/admin-dashboard.js"></script>
+</body>
+</html>

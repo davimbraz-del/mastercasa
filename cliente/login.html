@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Minha conta - Mastercasa Imobiliária</title>
+	<meta name="robots" content="noindex, nofollow">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-body">
+
+	<div class="auth-page">
+		<div class="auth-card">
+			<form id="formLogin">
+				<h1>Entrar</h1>
+				<p class="auth-sub">Acesse sua conta para ver os imóveis favoritados.</p>
+
+				<div class="field-group">
+					<label for="loginEmail">E-mail</label>
+					<input type="email" id="loginEmail" required autocomplete="username">
+				</div>
+				<div class="field-group">
+					<label for="loginSenha">Senha</label>
+					<input type="password" id="loginSenha" required autocomplete="current-password">
+				</div>
+				<p class="form-error" id="loginErro" hidden></p>
+				<button type="submit" class="btn btn-primary btn-block">Entrar</button>
+
+				<p class="auth-switch">Ainda não tem conta? <a href="#" id="mostrarCadastro">Criar conta</a></p>
+			</form>
+
+			<form id="formCadastro" hidden>
+				<h1>Criar conta</h1>
+				<p class="auth-sub">Crie sua conta para favoritar imóveis e acessá-los depois.</p>
+
+				<div class="field-group">
+					<label for="cadastroNome">Nome</label>
+					<input type="text" id="cadastroNome" required autocomplete="name">
+				</div>
+				<div class="field-group">
+					<label for="cadastroEmail">E-mail</label>
+					<input type="email" id="cadastroEmail" required autocomplete="username">
+				</div>
+				<div class="field-group">
+					<label for="cadastroSenha">Senha</label>
+					<input type="password" id="cadastroSenha" required minlength="6" autocomplete="new-password">
+				</div>
+				<p class="form-error" id="cadastroErro" hidden></p>
+				<p class="form-success" id="cadastroSucesso" hidden></p>
+				<button type="submit" class="btn btn-primary btn-block">Criar conta</button>
+
+				<p class="auth-switch">Já tem conta? <a href="#" id="mostrarLogin">Entrar</a></p>
+			</form>
+
+			<p class="auth-switch"><a href="../index.html">&larr; Voltar para o site</a></p>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+	<script src="../js/supabase-config.js"></script>
+	<script src="../js/supabase-client.js"></script>
+	<script src="../js/cliente-login.js"></script>
+</body>
+</html>

@@ -114,6 +114,9 @@
 			<polygon points="4,40 110,4 216,40" fill="none" stroke="currentColor" stroke-width="2"/>
 			<rect x="0" y="128" width="220" height="6" fill="none" stroke="currentColor" stroke-width="2"/>
 		</symbol>
+		<symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 20s-7-4.4-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 5c-2.5 4.6-9.5 9-9.5 9z"/>
+		</symbol>
 	</svg>
 
 	<!-- BARRA SUPERIOR -->
@@ -148,6 +151,8 @@
 					<li><a href="#servicos">Serviços</a></li>
 					<li><a href="#empresa">A empresa</a></li>
 					<li><a href="#contato">Contato</a></li>
+					<li><a href="cliente/login.html">Minha conta</a></li>
+					<li><a href="admin/login.html">Área do corretor</a></li>
 				</ul>
 			</nav>
 
@@ -232,112 +237,9 @@
 				<button type="button" id="limparFiltros" class="btn btn-outline">Limpar filtros</button>
 			</div>
 
-			<!-- EXEMPLO: substitua estes cards pelos imóveis reais conforme forem cadastrados -->
-			<div class="property-grid" id="propertyGrid">
-				<article class="property-card" data-price="550000" data-size="90" data-location="Espinheiro">
-					<div class="property-thumb">
-						<svg class="icon"><use href="#icon-building"></use></svg>
-						<span class="property-badge">Venda</span>
-					</div>
-					<div class="property-body">
-						<h3>Apartamento no Espinheiro</h3>
-						<p class="property-meta">3 quartos &middot; 2 vagas &middot; 90 m&sup2;</p>
-						<p class="property-price">R$ 550.000</p>
-						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Apartamento%20no%20Espinheiro%20(Venda)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
-					</div>
-				</article>
+			<p class="loading-imoveis" id="loadingImoveis">Carregando imóveis...</p>
 
-				<article class="property-card" data-price="850000" data-size="180" data-location="Casa Forte">
-					<div class="property-thumb">
-						<svg class="icon"><use href="#icon-home"></use></svg>
-						<span class="property-badge">Venda</span>
-					</div>
-					<div class="property-body">
-						<h3>Casa em Casa Forte</h3>
-						<p class="property-meta">4 quartos &middot; 3 vagas &middot; 180 m&sup2;</p>
-						<p class="property-price">R$ 850.000</p>
-						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Casa%20em%20Casa%20Forte%20(Venda)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
-					</div>
-				</article>
-
-				<article class="property-card" data-price="320000" data-size="68" data-location="Boa Viagem">
-					<div class="property-thumb">
-						<svg class="icon"><use href="#icon-building"></use></svg>
-						<span class="property-badge">Venda</span>
-					</div>
-					<div class="property-body">
-						<h3>Apartamento em Boa Viagem</h3>
-						<p class="property-meta">2 quartos &middot; 1 vaga &middot; 68 m&sup2;</p>
-						<p class="property-price">R$ 320.000</p>
-						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Apartamento%20em%20Boa%20Viagem%20(Venda)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
-					</div>
-				</article>
-
-				<article class="property-card" data-price="150000" data-size="72" data-location="Espinheiro">
-					<div class="property-thumb">
-						<svg class="icon"><use href="#icon-key"></use></svg>
-						<span class="property-badge property-badge-alt">Aluguel</span>
-					</div>
-					<div class="property-body">
-						<h3>Apartamento no Espinheiro</h3>
-						<p class="property-meta">2 quartos &middot; 1 vaga &middot; 72 m&sup2;</p>
-						<p class="property-price">R$ 150.000</p>
-						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Apartamento%20no%20Espinheiro%20(Aluguel)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
-					</div>
-				</article>
-
-				<article class="property-card" data-price="90000" data-size="40" data-location="Espinheiro">
-					<div class="property-thumb">
-						<svg class="icon"><use href="#icon-building"></use></svg>
-						<span class="property-badge property-badge-alt">Aluguel</span>
-					</div>
-					<div class="property-body">
-						<h3>Sala comercial no Espinheiro</h3>
-						<p class="property-meta">Sala &middot; 1 vaga &middot; 40 m&sup2;</p>
-						<p class="property-price">R$ 90.000</p>
-						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Sala%20comercial%20no%20Espinheiro%20(Aluguel)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
-					</div>
-				</article>
-
-				<article class="property-card" data-price="480000" data-size="140" data-location="Boa Viagem">
-					<div class="property-thumb">
-						<svg class="icon"><use href="#icon-home"></use></svg>
-						<span class="property-badge property-badge-alt">Aluguel</span>
-					</div>
-					<div class="property-body">
-						<h3>Casa em Boa Viagem</h3>
-						<p class="property-meta">3 quartos &middot; 2 vagas &middot; 140 m&sup2;</p>
-						<p class="property-price">R$ 480.000</p>
-						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%3A%20Casa%20em%20Boa%20Viagem%20(Aluguel)." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
-					</div>
-				</article>
-
-				<article class="property-card" data-price="320000" data-size="70" data-location="Espinheiro">
-					<div class="property-thumb">
-						<svg class="icon"><use href="#icon-rocket"></use></svg>
-						<span class="property-badge property-badge-launch">Lançamento</span>
-					</div>
-					<div class="property-body">
-						<h3>Residencial na planta &mdash; Espinheiro</h3>
-						<p class="property-meta">2 e 3 quartos &middot; Entrega prevista</p>
-						<p class="property-price">Condições especiais de pagamento</p>
-						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20lan%C3%A7amento%3A%20Residencial%20na%20planta%20-%20Espinheiro." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
-					</div>
-				</article>
-
-				<article class="property-card" data-price="550000" data-size="110" data-location="Casa Forte">
-					<div class="property-thumb">
-						<svg class="icon"><use href="#icon-rocket"></use></svg>
-						<span class="property-badge property-badge-launch">Lançamento</span>
-					</div>
-					<div class="property-body">
-						<h3>Residencial na planta &mdash; Casa Forte</h3>
-						<p class="property-meta">3 e 4 quartos &middot; Entrega prevista</p>
-						<p class="property-price">Condições especiais de pagamento</p>
-						<a href="https://api.whatsapp.com/send?phone=5581999778291&text=Ol%C3%A1!%20Tenho%20interesse%20no%20lan%C3%A7amento%3A%20Residencial%20na%20planta%20-%20Casa%20Forte." target="_blank" rel="noopener" class="btn btn-outline btn-block">Tenho interesse</a>
-					</div>
-				</article>
-			</div>
+			<div class="property-grid" id="propertyGrid"></div>
 
 			<p class="no-results" id="noResults" hidden>Nenhum imóvel encontrado com esses filtros.</p>
 		</div>
@@ -555,6 +457,8 @@
 					<li><a href="#servicos">Serviços</a></li>
 					<li><a href="#empresa">A empresa</a></li>
 					<li><a href="#contato">Contato</a></li>
+					<li><a href="cliente/login.html">Minha conta</a></li>
+					<li><a href="admin/login.html">Área do corretor</a></li>
 				</ul>
 			</div>
 
@@ -594,6 +498,10 @@
 		<button id="cookieAccept" class="btn btn-primary btn-small">Entendi</button>
 	</div>
 
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+	<script src="js/supabase-config.js"></script>
+	<script src="js/supabase-client.js"></script>
+	<script src="js/imoveis.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>

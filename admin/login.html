@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Painel do corretor - Mastercasa Imobiliária</title>
+	<meta name="robots" content="noindex, nofollow">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-body">
+
+	<div class="auth-page">
+		<div class="auth-card">
+			<h1>Painel do corretor</h1>
+			<p class="auth-sub">Entre com seu e-mail e senha cadastrados pela Mastercasa.</p>
+
+			<form id="formLogin">
+				<div class="field-group">
+					<label for="email">E-mail</label>
+					<input type="email" id="email" required autocomplete="username">
+				</div>
+				<div class="field-group">
+					<label for="senha">Senha</label>
+					<input type="password" id="senha" required autocomplete="current-password">
+				</div>
+				<p class="form-error" id="loginErro" hidden></p>
+				<button type="submit" class="btn btn-primary btn-block">Entrar</button>
+			</form>
+
+			<p class="auth-switch"><a href="../index.html">&larr; Voltar para o site</a></p>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+	<script src="../js/supabase-config.js"></script>
+	<script src="../js/supabase-client.js"></script>
+	<script src="../js/admin-login.js"></script>
+</body>
+</html>

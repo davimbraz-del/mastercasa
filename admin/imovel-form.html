@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastrar imóvel - Mastercasa Imobiliária</title>
+	<meta name="robots" content="noindex, nofollow">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-body">
+
+	<div class="admin-topbar">
+		<div class="container admin-topbar-inner">
+			<div class="admin-topbar-brand">
+				MASTERCASA <span>Painel do corretor</span>
+			</div>
+			<div class="admin-topbar-user">
+				<a href="index.html" style="color:#fff;">&larr; Voltar à lista</a>
+				<button type="button" id="botaoSair" class="btn btn-outline-light btn-small">Sair</button>
+			</div>
+		</div>
+	</div>
+
+	<main class="admin-main">
+		<div class="container">
+			<div class="admin-card">
+				<div class="admin-card-head">
+					<h1 id="tituloPagina">Novo imóvel</h1>
+				</div>
+
+				<form id="formImovel" class="admin-form">
+					<div class="admin-form-grid">
+						<div class="field-group full">
+							<label for="title">Título</label>
+							<input type="text" id="title" required placeholder="Ex: Apartamento no Espinheiro">
+						</div>
+
+						<div class="field-group">
+							<label for="transaction_type">Tipo de negócio</label>
+							<select id="transaction_type" required>
+								<option value="venda">Venda</option>
+								<option value="aluguel">Aluguel</option>
+								<option value="lancamento">Lançamento</option>
+							</select>
+						</div>
+
+						<div class="field-group">
+							<label for="property_type">Tipo de imóvel</label>
+							<input type="text" id="property_type" placeholder="Ex: Apartamento, Casa, Sala comercial">
+						</div>
+
+						<div class="field-group">
+							<label for="price">Preço (R$)</label>
+							<input type="number" id="price" min="0" step="1000">
+						</div>
+
+						<div class="field-group">
+							<label for="size">Tamanho (m&sup2;)</label>
+							<input type="number" id="size" min="0" step="1">
+						</div>
+
+						<div class="field-group">
+							<label for="bedrooms">Quartos</label>
+							<input type="number" id="bedrooms" min="0" step="1">
+						</div>
+
+						<div class="field-group">
+							<label for="parking">Vagas</label>
+							<input type="number" id="parking" min="0" step="1">
+						</div>
+
+						<div class="field-group full">
+							<label for="location">Localização / bairro</label>
+							<input type="text" id="location" placeholder="Ex: Espinheiro">
+						</div>
+
+						<div class="field-group full">
+							<label for="meta_text">Texto alternativo de detalhes (opcional)</label>
+							<input type="text" id="meta_text" placeholder='Ex: "2 e 3 quartos · Entrega prevista" (usado no lugar dos campos acima, se preenchido)'>
+						</div>
+
+						<div class="field-group full">
+							<label for="description">Descrição</label>
+							<textarea id="description" placeholder="Detalhes do imóvel para quem está visitando o site"></textarea>
+						</div>
+
+						<div class="field-group full">
+							<label for="foto">Foto do imóvel</label>
+							<input type="file" id="foto" accept="image/*">
+							<img id="fotoPreview" class="foto-preview" alt="Foto atual do imóvel" hidden>
+						</div>
+					</div>
+
+					<div class="admin-form-actions">
+						<button type="submit" id="botaoSalvar" class="btn btn-primary">Salvar imóvel</button>
+						<a href="index.html" class="btn btn-outline">Cancelar</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+	<script src="../js/supabase-config.js"></script>
+	<script src="../js/supabase-client.js"></script>
+	<script src="../js/admin-auth.js"></script>
+	<script src="../js/admin-form.js"></script>
+</body>
+</html>
