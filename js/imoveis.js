@@ -285,6 +285,14 @@
 		priceEl.textContent = formatarPreco(property);
 		body.appendChild(priceEl);
 
+		if (!property.isExample) {
+			var detalhesLink = document.createElement('a');
+			detalhesLink.className = 'property-detail-link';
+			detalhesLink.href = 'imovel.html?id=' + property.id;
+			detalhesLink.innerHTML = 'Ver detalhes <svg class="icon"><use href="#icon-arrow-right"></use></svg>';
+			body.appendChild(detalhesLink);
+		}
+
 		var link = document.createElement('a');
 		link.className = 'btn btn-outline btn-block';
 		link.target = '_blank';
