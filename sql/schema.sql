@@ -55,6 +55,7 @@ create table if not exists public.properties (
 	location text,
 	description text,
 	photo_url text,
+	photos text[],
 	meta_text text,
 	created_by uuid references public.profiles (id),
 	created_at timestamptz not null default now(),

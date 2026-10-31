@@ -155,6 +155,76 @@
 		return partes.join(' · ');
 	}
 
+	function obterFotos(property) {
+		if (property.photos && property.photos.length) {
+			return property.photos;
+		}
+		if (property.photo_url) {
+			return [property.photo_url];
+		}
+		return [];
+	}
+
+	function montarGaleria(thumb, fotos, titulo) {
+		var indiceAtual = 0;
+
+		var img = document.createElement('img');
+		img.className = 'property-photo';
+		img.src = fotos[0];
+		img.alt = titulo;
+		thumb.appendChild(img);
+
+		if (fotos.length < 2) {
+			return;
+		}
+
+		var dots = [];
+
+		function atualizar() {
+			img.src = fotos[indiceAtual];
+			dots.forEach(function (dot, indice) {
+				dot.classList.toggle('is-active', indice === indiceAtual);
+			});
+		}
+
+		var prevBtn = document.createElement('button');
+		prevBtn.type = 'button';
+		prevBtn.className = 'gallery-nav gallery-nav-prev';
+		prevBtn.setAttribute('aria-label', 'Foto anterior');
+		prevBtn.innerHTML = '<svg class="icon"><use href="#icon-arrow-right"></use></svg>';
+		prevBtn.addEventListener('click', function (event) {
+			event.preventDefault();
+			event.stopPropagation();
+			indiceAtual = (indiceAtual - 1 + fotos.length) % fotos.length;
+			atualizar();
+		});
+
+		var nextBtn = document.createElement('button');
+		nextBtn.type = 'button';
+		nextBtn.className = 'gallery-nav gallery-nav-next';
+		nextBtn.setAttribute('aria-label', 'Próxima foto');
+		nextBtn.innerHTML = '<svg class="icon"><use href="#icon-arrow-right"></use></svg>';
+		nextBtn.addEventListener('click', function (event) {
+			event.preventDefault();
+			event.stopPropagation();
+			indiceAtual = (indiceAtual + 1) % fotos.length;
+			atualizar();
+		});
+
+		var dotsWrap = document.createElement('div');
+		dotsWrap.className = 'gallery-dots';
+		fotos.forEach(function (_, indice) {
+			var dot = document.createElement('span');
+			dot.className = 'gallery-dot' + (indice === 0 ? ' is-active' : '');
+			dotsWrap.appendChild(dot);
+			dots.push(dot);
+		});
+
+		thumb.appendChild(prevBtn);
+		thumb.appendChild(nextBtn);
+		thumb.appendChild(dotsWrap);
+	}
+
 	function criarCard(property) {
 		var label = TRANSACTION_LABELS[property.transaction_type] || 'Imóvel';
 		var badgeClass = TRANSACTION_BADGE_CLASS[property.transaction_type] || '';
@@ -169,12 +239,9 @@
 		var thumb = document.createElement('div');
 		thumb.className = 'property-thumb';
 
-		if (property.photo_url) {
-			var img = document.createElement('img');
-			img.className = 'property-photo';
-			img.src = property.photo_url;
-			img.alt = property.title || '';
-			thumb.appendChild(img);
+		var fotos = obterFotos(property);
+		if (fotos.length) {
+			montarGaleria(thumb, fotos, property.title || '');
 		} else {
 			thumb.innerHTML = '<svg class="icon"><use href="#' + iconId + '"></use></svg>';
 		}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Redefinir senha - Mastercasa Imobiliária</title>
+	<meta name="robots" content="noindex, nofollow">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-body">
+
+	<div class="auth-page">
+		<div class="auth-card">
+			<form id="formRedefinir">
+				<h1>Redefinir senha</h1>
+				<p class="auth-sub">Escolha uma nova senha para a sua conta.</p>
+
+				<div class="field-group">
+					<label for="novaSenha">Nova senha</label>
+					<input type="password" id="novaSenha" required minlength="6" autocomplete="new-password">
+				</div>
+				<div class="field-group">
+					<label for="confirmarSenha">Confirmar nova senha</label>
+					<input type="password" id="confirmarSenha" required minlength="6" autocomplete="new-password">
+				</div>
+				<p class="form-error" id="redefinirErro" hidden></p>
+				<button type="submit" class="btn btn-primary btn-block">Salvar nova senha</button>
+			</form>
+
+			<div id="redefinirSucesso" hidden>
+				<h1>Senha alterada!</h1>
+				<p class="auth-sub">Agora é só entrar de novo com a nova senha.</p>
+				<p class="auth-switch"><a href="cliente/login.html">Entrar como cliente</a></p>
+				<p class="auth-switch"><a href="admin/login.html">Entrar como corretor</a></p>
+			</div>
+
+			<p class="auth-switch"><a href="index.html">&larr; Voltar para o site</a></p>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+	<script src="js/supabase-config.js"></script>
+	<script src="js/supabase-client.js"></script>
+	<script src="js/redefinir-senha.js"></script>
+</body>
+</html>

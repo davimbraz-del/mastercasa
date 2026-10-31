@@ -1,4 +1,7 @@
 (function () {
+	// Cada item: { url: string, file: File (se ainda não enviada) }
+	var fotos = [];
+
 	document.addEventListener('DOMContentLoaded', function () {
 		if (!window.MastercasaAdminAuth) {
 			return;
@@ -24,8 +27,8 @@
 	function iniciar(user) {
 		var form = document.getElementById('formImovel');
 		var tituloPagina = document.getElementById('tituloPagina');
+		var inputFotos = document.getElementById('fotos');
 		var id = paramId();
-		var fotoAtualUrl = null;
 
 		if (id) {
 			if (tituloPagina) {
@@ -39,13 +42,70 @@
 					return;
 				}
 				preencherForm(resposta.data);
-				fotoAtualUrl = resposta.data.photo_url;
+
+				var urlsExistentes = resposta.data.photos && resposta.data.photos.length
+					? resposta.data.photos
+					: (resposta.data.photo_url ? [resposta.data.photo_url] : []);
+
+				urlsExistentes.forEach(function (url) {
+					fotos.push({ url: url, file: null });
+				});
+				renderizarGaleria();
+			});
+		}
+
+		if (inputFotos) {
+			inputFotos.addEventListener('change', function () {
+				Array.prototype.forEach.call(inputFotos.files, function (file) {
+					fotos.push({ url: URL.createObjectURL(file), file: file });
+				});
+				inputFotos.value = '';
+				renderizarGaleria();
 			});
 		}
 
 		form.addEventListener('submit', function (event) {
 			event.preventDefault();
-			salvar(id, user, fotoAtualUrl);
+			salvar(id, user);
+		});
+	}
+
+	function renderizarGaleria() {
+		var galeria = document.getElementById('fotosGaleria');
+		if (!galeria) {
+			return;
+		}
+
+		galeria.innerHTML = '';
+
+		fotos.forEach(function (foto, indice) {
+			var item = document.createElement('div');
+			item.className = 'foto-item';
+
+			var img = document.createElement('img');
+			img.src = foto.url;
+			img.alt = 'Foto ' + (indice + 1);
+			item.appendChild(img);
+
+			if (indice === 0) {
+				var selo = document.createElement('span');
+				selo.className = 'foto-item-capa';
+				selo.textContent = 'Capa';
+				item.appendChild(selo);
+			}
+
+			var remover = document.createElement('button');
+			remover.type = 'button';
+			remover.className = 'foto-item-remover';
+			remover.setAttribute('aria-label', 'Remover foto');
+			remover.textContent = '×';
+			remover.addEventListener('click', function () {
+				fotos.splice(indice, 1);
+				renderizarGaleria();
+			});
+			item.appendChild(remover);
+
+			galeria.appendChild(item);
 		});
 	}
 
@@ -60,12 +120,6 @@
 		document.getElementById('location').value = imovel.location || '';
 		document.getElementById('description').value = imovel.description || '';
 		document.getElementById('meta_text').value = imovel.meta_text || '';
-
-		var preview = document.getElementById('fotoPreview');
-		if (preview && imovel.photo_url) {
-			preview.src = imovel.photo_url;
-			preview.hidden = false;
-		}
 	}
 
 	function valorNumerico(campoId) {
@@ -79,13 +133,13 @@
 	}
 
 	function enviarFoto(arquivo) {
-		var nomeArquivo = Date.now() + '-' + arquivo.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+		var nomeArquivo = Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '-' + arquivo.name.replace(/[^a-zA-Z0-9._-]/g, '_');
 		return window.mastercasaDB.storage
 			.from('property-photos')
 			.upload(nomeArquivo, arquivo)
 			.then(function (resposta) {
 				if (resposta.error) {
-					alert('Erro ao enviar a foto: ' + resposta.error.message);
+					alert('Erro ao enviar uma das fotos: ' + resposta.error.message);
 					return null;
 				}
 				var urlPublica = window.mastercasaDB.storage.from('property-photos').getPublicUrl(resposta.data.path);
@@ -93,7 +147,19 @@
 			});
 	}
 
-	function salvar(id, user, fotoAtualUrl) {
+	function enviarTodasAsFotos() {
+		var promessas = fotos.map(function (foto) {
+			if (!foto.file) {
+				return Promise.resolve(foto.url);
+			}
+			return enviarFoto(foto.file);
+		});
+		return Promise.all(promessas).then(function (urls) {
+			return urls.filter(Boolean);
+		});
+	}
+
+	function salvar(id, user) {
 		var botaoSalvar = document.getElementById('botaoSalvar');
 		if (botaoSalvar) {
 			botaoSalvar.disabled = true;
@@ -113,12 +179,10 @@
 			meta_text: document.getElementById('meta_text').value.trim() || null
 		};
 
-		var arquivoFoto = document.getElementById('foto').files[0];
-		var promessaFoto = arquivoFoto ? enviarFoto(arquivoFoto) : Promise.resolve(fotoAtualUrl);
-
-		promessaFoto
-			.then(function (urlFoto) {
-				dados.photo_url = urlFoto || null;
+		enviarTodasAsFotos()
+			.then(function (urls) {
+				dados.photos = urls;
+				dados.photo_url = urls.length ? urls[0] : null;
 
 				if (id) {
 					return window.mastercasaDB.from('properties').update(dados).eq('id', id);

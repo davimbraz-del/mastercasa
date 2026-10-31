@@ -93,9 +93,10 @@
 						</div>
 
 						<div class="field-group full">
-							<label for="foto">Foto do imóvel</label>
-							<input type="file" id="foto" accept="image/*">
-							<img id="fotoPreview" class="foto-preview" alt="Foto atual do imóvel" hidden>
+							<label for="fotos">Fotos do imóvel</label>
+							<input type="file" id="fotos" accept="image/*" multiple>
+							<p class="field-hint">Pode selecionar várias fotos de uma vez. A primeira da lista vira a foto de capa.</p>
+							<div id="fotosGaleria" class="fotos-galeria"></div>
 						</div>
 					</div>
 

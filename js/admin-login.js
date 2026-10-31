@@ -2,8 +2,30 @@
 	document.addEventListener('DOMContentLoaded', function () {
 		var form = document.getElementById('formLogin');
 		var erroEl = document.getElementById('loginErro');
+		var formEsqueci = document.getElementById('formEsqueciSenha');
+		var mostrarEsqueci = document.getElementById('mostrarEsqueciSenha');
+		var mostrarLoginDeVolta = document.getElementById('mostrarLoginDeVolta');
+		var esqueciErro = document.getElementById('esqueciErro');
+		var esqueciSucesso = document.getElementById('esqueciSucesso');
+
 		if (!form) {
 			return;
+		}
+
+		if (mostrarEsqueci) {
+			mostrarEsqueci.addEventListener('click', function (event) {
+				event.preventDefault();
+				form.hidden = true;
+				formEsqueci.hidden = false;
+			});
+		}
+
+		if (mostrarLoginDeVolta) {
+			mostrarLoginDeVolta.addEventListener('click', function (event) {
+				event.preventDefault();
+				formEsqueci.hidden = true;
+				form.hidden = false;
+			});
 		}
 
 		form.addEventListener('submit', function (event) {
@@ -30,5 +52,32 @@
 				window.location.href = 'index.html';
 			});
 		});
+
+		if (formEsqueci) {
+			formEsqueci.addEventListener('submit', function (event) {
+				event.preventDefault();
+				esqueciErro.hidden = true;
+				esqueciSucesso.hidden = true;
+
+				if (!window.mastercasaDB) {
+					esqueciErro.textContent = 'O Supabase ainda não foi configurado neste site.';
+					esqueciErro.hidden = false;
+					return;
+				}
+
+				var email = document.getElementById('esqueciEmail').value.trim();
+				var redirectTo = window.location.origin + '/redefinir-senha.html';
+
+				window.mastercasaDB.auth.resetPasswordForEmail(email, { redirectTo: redirectTo }).then(function (resposta) {
+					if (resposta.error) {
+						esqueciErro.textContent = resposta.error.message;
+						esqueciErro.hidden = false;
+						return;
+					}
+					esqueciSucesso.textContent = 'Link enviado! Confira seu e-mail (e a caixa de spam).';
+					esqueciSucesso.hidden = false;
+				});
+			});
+		}
 	});
 })();

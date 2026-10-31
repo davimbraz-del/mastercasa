@@ -32,6 +32,22 @@
 				<button type="submit" class="btn btn-primary btn-block">Entrar</button>
 
 				<p class="auth-switch">Ainda não tem conta? <a href="#" id="mostrarCadastro">Criar conta</a></p>
+				<p class="auth-switch"><a href="#" id="mostrarEsqueciSenha">Esqueci minha senha</a></p>
+			</form>
+
+			<form id="formEsqueciSenha" hidden>
+				<h1>Esqueci minha senha</h1>
+				<p class="auth-sub">Digite seu e-mail e enviaremos um link para redefinir a senha.</p>
+
+				<div class="field-group">
+					<label for="esqueciEmail">E-mail</label>
+					<input type="email" id="esqueciEmail" required autocomplete="username">
+				</div>
+				<p class="form-error" id="esqueciErro" hidden></p>
+				<p class="form-success" id="esqueciSucesso" hidden></p>
+				<button type="submit" class="btn btn-primary btn-block">Enviar link</button>
+
+				<p class="auth-switch"><a href="#" id="mostrarLoginDeVolta">&larr; Voltar ao login</a></p>
 			</form>
 
 			<form id="formCadastro" hidden>
